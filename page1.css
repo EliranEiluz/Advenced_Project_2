@@ -9,8 +9,9 @@ body {
 
 .card {
     width : 80%;
-    height: 420px;
-    padding: 30px;
+    height: 400px;
+    padding-left: 30px;
+    padding-right:30px;
     position: absolute;
     top: 15%;
     left: 10%;
