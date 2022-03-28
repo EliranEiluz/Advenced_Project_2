@@ -9,10 +9,10 @@ body {
 
 .card {
     width : 80%;
-    height: 260px;
+    height: 420px;
     padding: 30px;
     position: absolute;
-    top: 25%;
+    top: 15%;
     left: 10%;
     border-width: 2pt;
     border-color: rgb(13, 13, 88);
@@ -32,4 +32,8 @@ body {
    background-color: rgb(11, 11, 92);
    color: white;
    border-color:rgb(11, 11, 92);
+}
+
+#logo {
+    width:200px;
 }
