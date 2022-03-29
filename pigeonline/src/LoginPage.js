@@ -26,7 +26,7 @@ function LoginPage() {
                           <div class="row">
                             <div class="col-7">
 
-                                Not Registered? <Link to='/RegisterPage'>click here</Link> to join our community!
+                                Not Registered? <Link to='/register'>click here</Link> to join our community!
                                 
                               </div>
                               <div class="col-5">
