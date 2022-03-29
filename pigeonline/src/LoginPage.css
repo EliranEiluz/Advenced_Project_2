@@ -3,6 +3,7 @@
 }
 
 #cardLogin {
+    background-color: rgb(221, 222, 243);
     width : 80%;
     height: 420px;
     padding-left: 30px;
@@ -10,7 +11,7 @@
     position: absolute;
     top: 15%;
     left: 10%;
-    border-width: 2pt;
+    border-width: 3pt;
     border-color: rgb(13, 13, 88);
 }
 

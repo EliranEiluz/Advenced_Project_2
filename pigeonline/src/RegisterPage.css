@@ -3,6 +3,7 @@
 }
 
 #cardRegister {
+    background-color: rgb(221, 222, 243);
     width : 80%;
     height: 650px;
     padding-left: 30px;
@@ -10,7 +11,7 @@
     position: absolute;
     top: 5%;
     left: 10%;
-    border-width: 2pt;
+    border-width: 3pt;
     border-color: rgb(13, 13, 88);
 }
 
