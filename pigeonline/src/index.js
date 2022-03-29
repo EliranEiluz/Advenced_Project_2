@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import LoginPage from './LoginPage';
@@ -6,13 +6,14 @@ import RegisterPage from './RegisterPage';
 import {BrowserRouter,Routes, Route,Link } from 'react-router-dom';
 
 class User {
-  constructor(username, password) {
+  constructor(username, password, picture) {
     this.username = username;
     this.password = password;
+    this.picture = picture;
   }
 }
-var arr = [];
 
+const usersArray = {};
 
 ReactDOM.render(
   <React.StrictMode>

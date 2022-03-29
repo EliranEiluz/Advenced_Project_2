@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function RegisterPage() {
   return (
-    <div className="container-fluid">
+    <form className="container-fluid">
     <div id="cardRegister" className="card row">
       <div className="card-body">
         <div className="row" id="picWrapper">
@@ -45,13 +45,13 @@ function RegisterPage() {
               Already Registered? <Link to='/'>click here</Link>
             </div>
             <div className="col-7">
-              <button type="button" id="loginButton" className="btn btn-outline-primary">Register</button>
+              <button type="submit" id="loginButton" className="btn btn-outline-primary">Register</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </form>
   );
 }
 
