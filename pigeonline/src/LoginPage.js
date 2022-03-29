@@ -23,7 +23,7 @@ function LoginPage() {
                       <div class="container">
                           <div class="row">
                             <div class="col-7">
-                                Not Registered? <a href="#">click here</a> and join our great community!
+                                Not Registered? <a href="#">click here</a> to join our community!
                               </div>
                               <div class="col-5">
                                 <button type="button" id="loginButton" class="btn btn-outline-primary">Login</button>
