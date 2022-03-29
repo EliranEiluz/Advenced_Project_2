@@ -1,10 +1,18 @@
 import { Link } from 'react-router-dom';
 import './LoginPage.css';
+import { useState } from 'react';
 
 
+
+function handleSubmit(event) {
+    alert('wow');
+    event.preventDefault();
+}
 function LoginPage() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   return (
-    <div class="container-fluid">
+    <form class="container-fluid" onSubmit={handleSubmit}>
             <div id="cardLogin" class="card row">
                 <div class="card-body">
                     <div class="row" id="picWrapper">
@@ -30,13 +38,13 @@ function LoginPage() {
                                 
                               </div>
                               <div class="col-5">
-                                <button type="button" id="loginButton" class="btn btn-outline-primary">Login</button>
+                                <button type="submit" id="loginButton" class="btn btn-outline-primary">Login</button>
                               </div>
                           </div>
                       </div>
                 </div>
               </div>
-        </div>
+        </form>
 
   );
 }
