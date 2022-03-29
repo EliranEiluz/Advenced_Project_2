@@ -1,9 +1,10 @@
 import './RegisterPage.css';
 
+
 function RegisterPage() {
   return (
     <div className="container-fluid">
-    <div className="card row">
+    <div id="cardRegister" className="card row">
       <div className="card-body">
         <div className="row" id="picWrapper">
           <img src="im4.png" id="logo" />

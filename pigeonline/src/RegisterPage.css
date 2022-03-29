@@ -2,7 +2,7 @@
     height: 20%;
 }
 
-.card {
+#cardRegister {
     width : 80%;
     height: 650px;
     padding-left: 30px;
@@ -24,6 +24,7 @@
     border-color:rgb(11, 11, 92);
     color: rgb(11, 11, 92);
 }
+
 #loginButton:hover {
    background-color: rgb(11, 11, 92);
    color: white;

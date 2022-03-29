@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
-import './LoginPage.css';
 import RegisterPage from './RegisterPage.js';
+import './LoginPage.css';
+
 
 function LoginPage() {
   return (
     <div class="container-fluid">
-            <div class="card row">
+            <div id="cardLogin" class="card row">
                 <div class="card-body">
                     <div class="row" id="picWrapper">
                           <img src="im4.png" id="logo"></img>
@@ -32,8 +33,9 @@ function LoginPage() {
 
                                 </Route>
                               </Routes>
-                            </BrowserRouter>
                                 Not Registered? <Link to='/RegisterPage'>click here</Link> to join our community!
+                            </BrowserRouter>
+                                
                               </div>
                               <div class="col-5">
                                 <button type="button" id="loginButton" class="btn btn-outline-primary">Login</button>
