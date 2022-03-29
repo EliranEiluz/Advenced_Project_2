@@ -3,7 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
-import {BrowserRouter,Routes, Route } from 'react-router-dom';
+import {BrowserRouter,Routes, Route,Link } from 'react-router-dom';
+
+class User {
+  constructor(username, password) {
+    this.username = username;
+    this.password = password;
+  }
+}
+var arr = [];
 
 
 ReactDOM.render(
