@@ -24,13 +24,13 @@ function RegisterPage() {
         <div className="mb-3 row">
           <label className="col-sm-6 col-lg-2">Verify password</label>
           <div className="col-10">
-            <input type="password" className="form-control" placeholder="Please enter your password here..." />
+            <input type="password" className="form-control" placeholder="Please enter your password again..." />
           </div>
         </div>
         <div className="mb-3 row">
           <label className="col-sm-6 col-lg-2">display name</label>
           <div className="col-10">
-            <input type="password" className="form-control" placeholder="Please enter your password here..." />
+            <input className="form-control" placeholder="Please enter your display name..." />
           </div>
         </div>
         <div className="mb-3 row">
