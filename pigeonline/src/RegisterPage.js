@@ -1,5 +1,5 @@
 import './RegisterPage.css';
-
+import { Link } from 'react-router-dom';
 
 function RegisterPage() {
   return (
@@ -42,7 +42,7 @@ function RegisterPage() {
         <div className="container">
           <div className="row">
             <div className="col-5">
-              Not Registered? <a href="#">click here</a>
+              Not Registered? <Link to='/'>click here</Link>
             </div>
             <div className="col-7">
               <button type="button" id="loginButton" className="btn btn-outline-primary">Register</button>
