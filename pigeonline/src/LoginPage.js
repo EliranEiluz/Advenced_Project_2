@@ -1,4 +1,6 @@
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
 import './LoginPage.css';
+import RegisterPage from './RegisterPage.js';
 
 function LoginPage() {
   return (
@@ -23,7 +25,15 @@ function LoginPage() {
                       <div class="container">
                           <div class="row">
                             <div class="col-7">
-                                Not Registered? <a href="#">click here</a> to join our community!
+
+                            <BrowserRouter>
+                              <Routes>
+                                <Route path='/RegisterPage' element={<RegisterPage />}>
+
+                                </Route>
+                              </Routes>
+                            </BrowserRouter>
+                                Not Registered? <Link to='/RegisterPage'>click here</Link> to join our community!
                               </div>
                               <div class="col-5">
                                 <button type="button" id="loginButton" class="btn btn-outline-primary">Login</button>
