@@ -10,6 +10,7 @@ ReactDOM.render(
     <BrowserRouter>
     <Routes>
       <Route path='/register' element={<RegisterPage />}></Route>
+      <Route path='/' element={<LoginPage />}></Route>
     </Routes>
     <LoginPage />
     </BrowserRouter>

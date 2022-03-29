@@ -1,5 +1,4 @@
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
-import RegisterPage from './RegisterPage.js';
+import { Link } from 'react-router-dom';
 import './LoginPage.css';
 
 
@@ -27,14 +26,7 @@ function LoginPage() {
                           <div class="row">
                             <div class="col-7">
 
-                            <BrowserRouter>
-                              <Routes>
-                                <Route path='/RegisterPage' element={<RegisterPage />}>
-
-                                </Route>
-                              </Routes>
                                 Not Registered? <Link to='/RegisterPage'>click here</Link> to join our community!
-                            </BrowserRouter>
                                 
                               </div>
                               <div class="col-5">
