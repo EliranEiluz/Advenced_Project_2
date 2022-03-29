@@ -42,7 +42,7 @@ function RegisterPage() {
         <div className="container">
           <div className="row">
             <div className="col-5">
-              Already Registered? <Link to='/'>click here</Link> to login.
+              Already Registered? <Link to='/'>click here</Link>
             </div>
             <div className="col-7">
               <button type="button" id="loginButton" className="btn btn-outline-primary">Register</button>
