@@ -12,19 +12,28 @@ body {
 
 
 #Bar {
-    height: 115px;
-    background-color: antiquewhite;
+    height: 100px;
+    background-color: rgb(201, 198, 194);
     padding: 0%;
 }
+
 #logo {
-    width:200px;
+    width:150px;
     float: left;
+}
+
+#webLogo {
+    height: 100px;
+    float: right;
+    border-width: 5pt;
+    border-color: black;
 }
 
 .card-body {
     margin: 0%;
     padding: 0%;
 }
+
 
 #chatCard {
     background-color: rgb(221, 222, 243);
@@ -39,19 +48,54 @@ body {
     border-color: rgb(13, 13, 88);
 }
 
+
+.chat-bar {
+    margin: 0%;
+    padding: 0%;
+    background-color: rgba(19, 28, 158, 0.822);
+    height: 13%;
+    text-align: center;
+    padding-top: 2%;
+    border-width: 2pt;
+    color: white;
+    font-weight: bold;
+}
+
+#chat {
+    padding-left: 5%;
+}
+
 #chatMenu {
     background-color: rgb(226, 241, 241);
     padding: 0;
 }
 
+.user-bar {
+    margin: 0%;
+    padding: 0%;
+    border-width: 0.5px;
+    background-color: rgba(94, 84, 131, 0.637);
+    padding-left: 0%;
+    font-weight: bold;
+}
+
 #userName {
     padding: 3%;
-    border-width: 0.5px;
-    background-color: rgb(14, 21, 99);;
     width: 100%;
-    background-color: rgb(226, 241, 241);
     color: black;
-    padding-left: 10%;
+    padding-left: 0;
+    margin-left: 5%;
+}
+
+#addUser {
+    padding: 3%;
+    width: 40%;
+    color: black;
+    padding-right: 0;
+    padding-left: 0;
+    border-radius: 0;
+    float: right;
+    background-color: rgb(141, 154, 196);
 }
 
 #chatList {
@@ -76,4 +120,5 @@ button.user:hover {
 #chatWindow {
     background-image: linear-gradient(rgb(0, 174, 255), rgb(80, 78, 184), rgb(19, 12, 119));
     background-attachment: fixed;
+    padding: 0%;
 }
