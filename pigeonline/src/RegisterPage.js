@@ -1,9 +1,10 @@
 import './RegisterPage.css';
 import { Link } from 'react-router-dom';
-
+import { useState } from 'react';
 
 
 function RegisterPage() {
+  const [userValues, setUserValues] = useState({username:'', password:'', validatePass:'',displayName:'', picture:''});
 
   function validateForm() {
   

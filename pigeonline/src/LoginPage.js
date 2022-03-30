@@ -6,23 +6,28 @@ import { useState } from 'react';
 
 function LoginPage({UsersArray}) {
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [userValues, setUserValues] = useState({username:'', password:''});
 
   function validateForm() {
-    return username.length > 0 && password.length > 7;
+    return userValues.username.length > 0 && userValues.password.length > 7;
   }
   
   function handleSubmit(event) {
-    if(UsersArray.find((e) => e.username == username && e.password == password)) {
+    if(UsersArray.find((e) => e.username == userValues.username && e.password == userValues.password)) {
       alert('succsess')
     }
     else {
       alert('failed')
     }
     event.preventDefault();
-}
-
+  }
+  const handleChange = e => {
+    const {name, value} = e.target;
+    setUserValues({
+      ...userValues,
+      [name]: value
+    })
+  }
 
   return (
     <form class="container-fluid" onSubmit={handleSubmit}>
@@ -34,13 +39,13 @@ function LoginPage({UsersArray}) {
                     <div class="mb-3 row">
                         <label class="col-sm-6 col-lg-2">Username</label>
                         <div class="col-10">
-                          <input type="text" class="form-control" placeholder="Please enter your username here..." onChange={(e) => setUsername(e.target.value)} value={username}></input>
+                          <input name="username" type="text" class="form-control" placeholder="Please enter your username here..." onChange={handleChange} value={userValues.username} required></input>
                         </div>
                       </div>
                       <div class="mb-3 row">
                         <label class="col-sm-6 col-lg-2">Password</label>
                         <div class="col-10">
-                          <input type="password" class="form-control" placeholder="Please enter your password here..." onChange={(e) => setPassword(e.target.value)} value={password}></input>
+                          <input name="password" type="password" class="form-control" placeholder="Please enter your password here..." onChange={handleChange} value={userValues.password} required></input>
                         </div>
                       </div>
                       <div class="container">
