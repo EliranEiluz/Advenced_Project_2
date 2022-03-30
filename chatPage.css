@@ -13,6 +13,7 @@ body {
 
 
 .card-body {
+    margin: 0%;
     padding: 0%;
 }
 
@@ -20,9 +21,10 @@ body {
     background-color: rgb(221, 222, 243);
     width : 80%;
     height: 420px;
-    padding: 0%;
+    padding-left: 0;
+    padding-right:0;
     position: absolute;
-    top: 20%;
+    top: 15%;
     left: 10%;
     border-width: 3pt;
     border-color: rgb(13, 13, 88);
@@ -30,7 +32,6 @@ body {
 
 #chatMenu {
     background-color: rgb(226, 241, 241);
-    margin: 0;
     padding: 0;
 }
 
