@@ -66,7 +66,7 @@ body {
 }
 
 #chatMenu {
-    background-color: rgb(226, 241, 241);
+    background-color: rgb(152, 183, 219);
     padding: 0;
 }
 
@@ -74,7 +74,7 @@ body {
     margin: 0%;
     padding: 0%;
     border-width: 0.5px;
-    background-color: rgba(94, 84, 131, 0.637);
+    background-color: rgba(109, 101, 139, 0.841);
     padding-left: 0%;
     font-weight: bold;
 }
@@ -108,7 +108,7 @@ button.user {
     border-width: 0.1pc;
     border-color: rgb(47, 47, 124);
     width: 100%;
-    background-color: rgb(226, 241, 241);
+    background-color: rgb(152, 183, 219);
     color: black;
 }
 
