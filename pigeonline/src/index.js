@@ -6,21 +6,22 @@ import RegisterPage from './RegisterPage';
 import {BrowserRouter,Routes, Route,Link } from 'react-router-dom';
 
 class User {
-  constructor(username, password, picture) {
+  constructor(username, password,displayName, picture) {
     this.username = username;
+    this.displayName = displayName;
     this.password = password;
     this.picture = picture;
   }
 }
 
-const usersArray = {};
+const UsersArray = [new User('wow','wowwowwow','wow','im4.jpeg')];
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <Routes>
-      <Route exact path='/register' element={<RegisterPage />}></Route>
-      <Route path='/' element={<LoginPage />}></Route>
+      <Route exact path='/register' element={<RegisterPage UsersArray={UsersArray}/>}></Route>
+      <Route path='/' element={<LoginPage UsersArray={UsersArray}/>}></Route>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,7 +1,13 @@
 import './RegisterPage.css';
 import { Link } from 'react-router-dom';
 
+
+
 function RegisterPage() {
+
+  function validateForm() {
+  
+  }
   return (
     <form className="container-fluid">
     <div id="cardRegister" className="card row">
@@ -28,13 +34,13 @@ function RegisterPage() {
           </div>
         </div>
         <div className="mb-3 row">
-          <label className="col-sm-6 col-lg-2">display name</label>
+          <label className="col-sm-6 col-lg-2">Display name</label>
           <div className="col-10">
             <input className="form-control" placeholder="Please enter your display name..." />
           </div>
         </div>
         <div className="mb-3 row">
-          <label className="col-sm-6 col-lg-2">upload picture</label>
+          <label className="col-sm-6 col-lg-2">Upload picture</label>
           <div className="col-10">
             <input type="file" id="inputGroupFile02" className="form-control" />
           </div>
@@ -42,7 +48,7 @@ function RegisterPage() {
         <div className="container">
           <div className="row">
             <div className="col-5">
-              Already Registered? <Link to='/'>click here</Link>
+              Already Registered? <Link to='/'>click here!</Link>
             </div>
             <div className="col-7">
               <button type="submit" id="loginButton" className="btn btn-outline-primary">Register</button>
