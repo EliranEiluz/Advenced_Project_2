@@ -21,11 +21,12 @@ function LoginPage({UsersArray}) {
     }
     event.preventDefault();
   }
-  const handleChange = e => {
+  
+  function handleChange(e) {
     const {name, value} = e.target;
     setUserValues({
       ...userValues,
-      [name]: value
+      [name]:value
     })
   }
 
