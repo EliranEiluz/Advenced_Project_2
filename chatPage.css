@@ -11,6 +11,15 @@ body {
 }
 
 
+#Bar {
+    height: 115px;
+    background-color: antiquewhite;
+    padding: 0%;
+}
+#logo {
+    width:200px;
+    float: left;
+}
 
 .card-body {
     margin: 0%;
@@ -24,7 +33,7 @@ body {
     padding-left: 0;
     padding-right:0;
     position: absolute;
-    top: 15%;
+    top: 20%;
     left: 10%;
     border-width: 3pt;
     border-color: rgb(13, 13, 88);
@@ -35,6 +44,16 @@ body {
     padding: 0;
 }
 
+#userName {
+    padding: 3%;
+    border-width: 0.5px;
+    background-color: rgb(14, 21, 99);;
+    width: 100%;
+    background-color: rgb(226, 241, 241);
+    color: black;
+    padding-left: 10%;
+}
+
 #chatList {
     list-style-type:none
 }
@@ -42,7 +61,8 @@ body {
 
 button.user {
     padding: 3%;
-    border-width: 0.5px;
+    border-width: 0.1pc;
+    border-color: rgb(47, 47, 124);
     width: 100%;
     background-color: rgb(226, 241, 241);
     color: black;
