@@ -40,6 +40,7 @@ function ChatPage() {
               </div>
               
           </div>
+
           <ul id="chatList" className="list-group">
             <li><button className="user" type="button">User-1</button></li>
             <li><button className="user" type="button">User-2</button></li>
@@ -90,7 +91,7 @@ function ChatPage() {
                   </button></li>
                 </ul>
               </div>
-              <input type="text" class="form-control" id="messageText"></input>
+              <input type="text" class="form-control" id="messageText" placeholder="New message here..."></input>
             </div>
         
           </div>
