@@ -1,46 +1,116 @@
-#cardLogin {
+.container {
+    padding: 0px;
+}
+
+
+#Bar {
+    height: 100px;
+    background-color: rgb(221, 222, 243);
+    padding: 0%;
+}
+
+#logo {
+    width:150px;
+    float: left;
+}
+
+#webLogo {
+    height: 100px;
+    float: right;
+    border-width: 5pt;
+    border-color: black;
+}
+
+.card-body {
+    margin: 0%;
+    padding: 0%;
+}
+
+
+#chatCard {
     background-color: rgb(221, 222, 243);
     width : 80%;
     height: 420px;
-    padding-left: 30px;
-    padding-right:30px;
+    padding-left: 0;
+    padding-right:0;
     position: absolute;
-    top: 15%;
+    top: 20%;
     left: 10%;
     border-width: 3pt;
     border-color: rgb(13, 13, 88);
 }
 
-.container {
-    padding: 0px;
+
+.chat-bar {
+    margin: 0%;
+    padding: 0%;
+    background-color: rgba(19, 28, 158, 0.822);
+    height: 13%;
+    text-align: center;
+    padding-top: 2%;
+    border-width: 2pt;
+    color: white;
+    font-weight: bold;
 }
 
-#loginButton {
-    width: 60%;
+#chat {
+    padding-left: 5%;
+}
+
+#chatMenu {
+    background-color: rgb(221, 222, 243);
+    padding: 0;
+}
+
+.user-bar {
+    margin: 0%;
+    padding: 0%;
+    border-width: 0.5px;
+    background-color: rgb(219, 231, 220);
+    padding-left: 0%;
+    font-weight: bold;
+}
+
+#userName {
+    padding: 3%;
+    width: 100%;
+    color: black;
+    padding-left: 0;
+    margin-left: 5%;
+}
+
+#addUser {
+    padding: 3%;
+    width: 40%;
+    color: black;
+    padding-right: 0;
+    padding-left: 0;
+    border-radius: 0;
     float: right;
-    border-color:rgb(11, 11, 92);
-    color: rgb(11, 11, 92);
+    background-color: rgb(141, 154, 196);
 }
 
-#loginButton:hover {
-   background-color: rgb(11, 11, 92);
-   color: white;
-   border-color:rgb(11, 11, 92);
+#chatList {
+    list-style-type:none
 }
 
-#logo {
-    margin-left:auto;
-    margin-right:auto;
-    display:block;
-    width:230px;
+
+button.user {
+    padding: 3%;
+    border-width: 0.1pc;
+    border-color: rgb(47, 47, 124);
+    width: 100%;
+    background-color: rgb(221, 222, 243);
+    color: black;
 }
 
-.form-control:focus {
-    border-color: rgb(11, 11, 92);
-    box-shadow: 0 0 0 0.25rem rgb(11, 11, 92);
+button.user:hover {
+    background-color: rgb(14, 21, 99);
+    color: white
 }
 
-.form-control {
-    border-color: rgb(11, 11, 92);
+#chatWindow {
+    background-image: linear-gradient(rgb(0, 174, 255), rgb(80, 78, 184), rgb(19, 12, 119));
+    background-attachment: fixed;
+    padding: 0%;
 }
-
