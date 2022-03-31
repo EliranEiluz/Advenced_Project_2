@@ -141,3 +141,21 @@ button.user:hover {
     width: 50px;
     padding: 0;
 }
+
+.img-upload > input
+{
+    display: none;
+}
+#iconImg
+{
+    cursor: pointer;
+}
+
+.vid-upload > input
+{
+    display: none;
+}
+#iconVid
+{
+    cursor: pointer;
+}
