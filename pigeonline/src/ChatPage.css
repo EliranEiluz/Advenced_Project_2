@@ -113,4 +113,26 @@ button.user:hover {
     background-image: linear-gradient(rgb(0, 174, 255), rgb(80, 78, 184), rgb(19, 12, 119));
     background-attachment: fixed;
     padding: 0%;
+    position: relative;
+}
+
+#messageRow {
+    position:absolute;
+    bottom: 0;
+    width: 100%;
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 0%;
+}
+
+.input-group {
+    margin: 0%;
+    padding: 0%;
+    bottom: 0;
+    height: 40px;
+}
+
+.SendButton {
+    background-color: rgb(155, 236, 155);
+    width: 60px;
 }

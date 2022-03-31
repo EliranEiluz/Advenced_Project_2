@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
 import ChatPage from './ChatPage';
-import LoginPage from './LoginPage';
 
 import {BrowserRouter,Routes, Route,Link } from 'react-router-dom';
 
