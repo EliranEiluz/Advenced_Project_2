@@ -122,7 +122,6 @@ button.user:hover {
     width: 100%;
     margin: 0%;
     padding: 0%;
-    padding-bottom: 0%;
 }
 
 .input-group {
@@ -135,4 +134,10 @@ button.user:hover {
 .SendButton {
     background-color: rgb(155, 236, 155);
     width: 60px;
+}
+
+.dropdown-menu {
+    min-width: 10px;
+    width: 50px;
+    padding: 0;
 }
