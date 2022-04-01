@@ -7,53 +7,44 @@ function RegisterPage({UsersArray}) {
   const [userValues, setUserValues] = useState({username:'', password:'', validatePass:'',displayName:'', picture:''});
   
   function validateForm() {
-    /*
-    validateUserName();
-    validatePassword();
-    validatePassword2();
-    validateDisplayName();
-    validatePicture();
-    */
-    return validateUserName() && validatePassword() && validatePassword2() && validateDisplayName() && validatePicture();
+    return validateUserName() && validatePassword() && validatePassword2() && validateDisplayName() && validatePicture()
   }
 
   function validateUserName() {
-    let x = document.getElementById("usernameError")
-    if(userValues.username) {
-      if(!UsersArray.find((e) => e.username == userValues.username)) {
+    var x = document.getElementById("usernameError")
+    if(userValues.username.length > 0) {
+      if(!UsersArray.find((e) => e.username === userValues.username)) {
           x.innerHTML = "";
       }
-    } else {
+    } 
+    /*
+    else {
+      if(x.innerHTML != "")
         x.innerHTML = "Username must contain at least one character."
     }
-    
-    return userValues.username > 0 && !UsersArray.find((e) => e.username == userValues.username);
+  */
+    return userValues.username.length > 0 && !UsersArray.find((e) => e.username === userValues.username);
   }
 
   function validateDisplayName() {
-    let x = document.getElementById("displayNameError")
-    if(userValues.displayName) {
-        x.innerHTML = "";
-    }
-    else {
-        x.innerHTML = "The Display name must contain at least one character."
-    }
-    return userValues.displayName > 0
+    return userValues.displayName.length > 0
   }
 
   function validatePassword() {
-    let x = document.getElementById("passwordError")
-    if (userValues.password > 7) {
+    var x = document.getElementById("passwordError")
+    if (userValues.password.length > 7) {
       x.innerHTML = "";
     }
-    else {
+    else 
+    {
       x.innerHTML = "Password must contain at least 8 characters."
     }
-    return userValues.password > 7 
+    
+    return userValues.password.length > 7 
   }
 
   function validatePassword2() {
-    return userValues.password == userValues.validatePass;
+    return userValues.password === userValues.validatePass;
   }
 
 
@@ -73,54 +64,19 @@ function RegisterPage({UsersArray}) {
     event.preventDefault();
   }
 
-
-/*
-  function handleInvalid(str,elementName) {
-    var func;
-    switch(elementName) {
-      case 'username':
-        func = validateUserName;
-        break;
-      case 'password':
-        func = validatePassword;
-        break;
-      case 'password2':
-        func = validatePassword2;
-        break;
-      case 'displayName':
-        func = validateDisplayName;
-        break;
-      case 'picture':
-        func = validatePicture;
-        break;
-    }
-    if (!func()) {
-      return (
-        <div>
-          {str}
-        </div>
-      );
-    }
-    else {
-      return(<></>);
-    }
-  }
-*/
-
-
   return (
     <form className="container-fluid" onSubmit={handleSubmit}>
     <div id="cardRegister" className="card row">
       <div className="card-body">
         <div className="row" id="picWrapper">
-          <img src="im4.png" id="logo" />
+          <img src="im4.png" id="logo" alt="logo"/>
         </div>
         <div className="mb-3 row">
-          <label for="username" className="col-sm-6 col-lg-2">Username</label>
+          <label className="col-sm-6 col-lg-2">Username</label>
           <div className="col-10">
-            <input id="username" name="username" type="text" className="form-control" placeholder="Please enter your username here..." onChange={handleChange} />
+            <input name="username" type="text" className="form-control" placeholder="Please enter your username here..." onChange={handleChange} />
             <div id="usernameError" className="error-divs">
-            Username must contain at least one character.
+              Username must contain at least one character.
             </div>
           </div>
         </div>
