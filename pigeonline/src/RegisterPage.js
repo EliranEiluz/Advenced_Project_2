@@ -121,7 +121,7 @@ function RegisterPage({UsersArray}) {
               Already Registered? <Link to='/'>click here!</Link>
             </div>
             <div className="col-7">
-              <button type="submit" id="loginButton" className="btn btn-outline-primary" disabled={!validateForm()}>Register</button>
+              <button type="submit" id="loginButton" className="btn btn-outline-primary" disabled={!validateForm}>Register</button>
             </div>
           </div>
         </div>

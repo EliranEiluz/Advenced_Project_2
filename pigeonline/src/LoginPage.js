@@ -57,7 +57,11 @@ function LoginPage({UsersArray}) {
                                 
                               </div>
                               <div class="col-5">
-                                <button type="submit" id="loginButton" class="btn btn-outline-primary" disabled={!validateForm()}>Login</button>
+                              <Link to='/chat'>
+                                <button type="submit" id="loginButton" class="btn btn-outline-primary" disabled={!validateForm()}>
+                                  Login
+                                </button>
+                              </Link>
                               </div>
                           </div>
                       </div>

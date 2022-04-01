@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
+import ChatPage from './ChatPage';
+
 import {BrowserRouter,Routes, Route,Link } from 'react-router-dom';
+
 
 class User {
   constructor(username, password,displayName, picture) {
@@ -20,6 +23,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <Routes>
+      <Route exact path='/chat' element={<ChatPage />}></Route>
       <Route exact path='/register' element={<RegisterPage UsersArray={UsersArray}/>}></Route>
       <Route path='/' element={<LoginPage UsersArray={UsersArray}/>}></Route>
     </Routes>
