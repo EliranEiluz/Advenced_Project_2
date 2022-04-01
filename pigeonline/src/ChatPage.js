@@ -1,5 +1,5 @@
-import ChatMenu from './ChatMenu';
 import './ChatPage.css';
+import ChatMenu from './ChatMenu';
 import ChatWindow from './ChatWindow';
 
 
