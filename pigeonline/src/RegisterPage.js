@@ -7,43 +7,62 @@ function RegisterPage({UsersArray}) {
   const [userValues, setUserValues] = useState({username:'', password:'', validatePass:'',displayName:'', picture:''});
   
   function validateForm() {
+    validateUserName()
+    validatePassword()
+    validatePassword2()
+    validateDisplayName()
+    validatePicture()
     return validateUserName() && validatePassword() && validatePassword2() && validateDisplayName() && validatePicture()
   }
 
   function validateUserName() {
-    var x = document.getElementById("usernameError")
     if(userValues.username.length > 0) {
-      if(!UsersArray.find((e) => e.username === userValues.username)) {
-          x.innerHTML = "";
+        document.getElementById("usernameError").style.display = "none";
+        document.getElementById("usedMessage").style.display = "none";
+      if(UsersArray.find((e) => e.username === userValues.username)) {
+        document.getElementById("usedMessage").style.display = "block"; 
       }
-    } 
-    /*
-    else {
-      if(x.innerHTML != "")
-        x.innerHTML = "Username must contain at least one character."
     }
-  */
+    else {
+      if(document.readyState == "complete") {
+        document.getElementById("usedMessage").style.display = "none"; 
+        document.getElementById("usernameError").style.display = "block";
+      }
+    }
     return userValues.username.length > 0 && !UsersArray.find((e) => e.username === userValues.username);
   }
 
   function validateDisplayName() {
-    return userValues.displayName.length > 0
+    if(userValues.displayName.length > 0) {
+      document.getElementById("displayNameError").style.display = "none";
+    } else {
+      if(document.readyState == "complete") {
+        document.getElementById("displayNameError").style.display = "block";
+      }
+    }
+    return userValues.displayName.length > 0;
   }
 
   function validatePassword() {
-    var x = document.getElementById("passwordError")
     if (userValues.password.length > 7) {
-      x.innerHTML = "";
+      document.getElementById("passwordError").style.display = "none";
+    } else {
+      if(document.readyState == "complete") {
+        document.getElementById("passwordError").style.display = "block";
+      }
     }
-    else 
-    {
-      x.innerHTML = "Password must contain at least 8 characters."
-    }
-    
     return userValues.password.length > 7 
   }
 
   function validatePassword2() {
+    if (userValues.password === userValues.validatePass && userValues.password.length > 0) {
+      document.getElementById("validatePassError").style.display = "none";
+    }
+    else {
+      if(document.readyState == "complete") {
+        document.getElementById("validatePassError").style.display = "block";
+      }
+    }
     return userValues.password === userValues.validatePass;
   }
 
@@ -77,6 +96,9 @@ function RegisterPage({UsersArray}) {
             <input name="username" type="text" className="form-control" placeholder="Please enter your username here..." onChange={handleChange} />
             <div id="usernameError" className="error-divs">
               Username must contain at least one character.
+            </div>
+            <div id="usedMessage" className="error-divs">
+              Sorry, this username is already taken.
             </div>
           </div>
         </div>
@@ -121,7 +143,7 @@ function RegisterPage({UsersArray}) {
               Already Registered? <Link to='/'>click here!</Link>
             </div>
             <div className="col-7">
-              <button type="submit" id="loginButton" className="btn btn-outline-primary" disabled={!validateForm}>Register</button>
+              <button type="submit" id="loginButton" className="btn btn-outline-primary" disabled={!validateForm()}>Register</button>
             </div>
           </div>
         </div>

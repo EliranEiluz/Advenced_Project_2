@@ -23,8 +23,8 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <Routes>
-      <Route exact path='/chat' element={<ChatPage />}></Route>
-      <Route exact path='/register' element={<RegisterPage UsersArray={UsersArray}/>}></Route>
+      <Route path='/chat' element={<ChatPage />}></Route>
+      <Route path='/register' element={<RegisterPage UsersArray={UsersArray}/>}></Route>
       <Route path='/' element={<LoginPage UsersArray={UsersArray}/>}></Route>
     </Routes>
     </BrowserRouter>

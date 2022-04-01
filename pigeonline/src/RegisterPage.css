@@ -47,4 +47,7 @@
 .error-divs {
     color:red;
 }
+#usedMessage {
+    display: none;
+}
 
