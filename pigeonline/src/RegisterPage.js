@@ -1,18 +1,17 @@
 import './RegisterPage.css';
-import { Link } from 'react-router-dom';
+import { Link,Navigate,useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
+import User from './index';
 
 function RegisterPage({UsersArray}) {
   const [userValues, setUserValues] = useState({username:'', password:'', validatePass:'',displayName:'', picture:''});
-  
+  var navigate = useNavigate();
+  const [isValidValues] = useState({validUserName:false, validPassword:false, validPassword2:false, validDisplayName:false, 
+  validPicture:false});
+
   function validateForm() {
-    validateUserName()
-    validatePassword()
-    validatePassword2()
-    validateDisplayName()
-    validatePicture()
-    return validateUserName() && validatePassword() && validatePassword2() && validateDisplayName() && validatePicture()
+    return isValidValues.validUserName && isValidValues.validPassword && isValidValues.validPassword2 &&
+     isValidValues.validDisplayName && isValidValues.validPicture;
   }
 
   function validateUserName() {
@@ -24,10 +23,8 @@ function RegisterPage({UsersArray}) {
       }
     }
     else {
-      if(document.readyState == "complete") {
-        document.getElementById("usedMessage").style.display = "none"; 
-        document.getElementById("usernameError").style.display = "block";
-      }
+      document.getElementById("usedMessage").style.display = "none"; 
+      document.getElementById("usernameError").style.display = "block";
     }
     return userValues.username.length > 0 && !UsersArray.find((e) => e.username === userValues.username);
   }
@@ -36,9 +33,7 @@ function RegisterPage({UsersArray}) {
     if(userValues.displayName.length > 0) {
       document.getElementById("displayNameError").style.display = "none";
     } else {
-      if(document.readyState == "complete") {
-        document.getElementById("displayNameError").style.display = "block";
-      }
+      document.getElementById("displayNameError").style.display = "block";
     }
     return userValues.displayName.length > 0;
   }
@@ -47,9 +42,7 @@ function RegisterPage({UsersArray}) {
     if (userValues.password.length > 7) {
       document.getElementById("passwordError").style.display = "none";
     } else {
-      if(document.readyState == "complete") {
-        document.getElementById("passwordError").style.display = "block";
-      }
+      document.getElementById("passwordError").style.display = "block";
     }
     return userValues.password.length > 7 
   }
@@ -59,9 +52,7 @@ function RegisterPage({UsersArray}) {
       document.getElementById("validatePassError").style.display = "none";
     }
     else {
-      if(document.readyState == "complete") {
-        document.getElementById("validatePassError").style.display = "block";
-      }
+      document.getElementById("validatePassError").style.display = "block";
     }
     return userValues.password === userValues.validatePass;
   }
@@ -77,14 +68,68 @@ function RegisterPage({UsersArray}) {
       ...userValues,
       [name]:value
     })
+    validityCheck(name, value);
+  }
+
+  function validityCheck(name, value) {
+    switch(name) {
+      case 'username':
+        userValues.username = value;
+        if(validateUserName()) {
+          isValidValues.validUserName = true;
+        } 
+        else {
+          isValidValues.validUserName = false;
+        }
+        break;
+      case 'password':
+        userValues.password = value;
+        if(validatePassword()) {
+          isValidValues.validPassword = true;
+        }
+        else {
+          isValidValues.validPassword = false;
+        }
+        break;
+      case 'validatePass':
+        userValues.validatePass = value;
+        if(validatePassword2()) {
+          isValidValues.validPassword2 = true;
+        }
+        else {
+          isValidValues.validPassword2 = false;
+        }
+        break;
+      case 'displayName':
+        userValues.displayName = value;
+        if(validateDisplayName()) {
+          isValidValues.validDisplayName = true;
+        }
+        else {
+          isValidValues.validDisplayName = false;
+        }
+        break;
+      case 'picture':
+        userValues.picture = value;
+        if(validatePicture()) {
+          isValidValues.validPicture = true;
+        } 
+        else {
+          isValidValues.validPicture = false;
+        }
+        break;
+    }
   }
 
   function handleSubmit(event) {
+    UsersArray.push(new User(userValues.username, userValues.password, userValues.displayName, userValues.picture));
     event.preventDefault();
+    navigate('/')
   }
 
+
   return (
-    <form className="container-fluid" onSubmit={handleSubmit}>
+    <form className="container-fluid" onSubmit={handleSubmit} >
     <div id="cardRegister" className="card row">
       <div className="card-body">
         <div className="row" id="picWrapper">
@@ -132,7 +177,7 @@ function RegisterPage({UsersArray}) {
         <div className="mb-3 row">
           <label className="col-sm-6 col-lg-2">Upload picture</label>
           <div className="col-10">
-            <input name="picture" type="file" id="inputGroupFile02" className="form-control" onChange={handleChange}/>
+            <input name="picture" type="file" accept="image/*" id="inputGroupFile02" className="form-control" onChange={handleChange}/>
             <div id="pictureError" className="error-divs">
             </div>
           </div>
@@ -143,7 +188,7 @@ function RegisterPage({UsersArray}) {
               Already Registered? <Link to='/'>click here!</Link>
             </div>
             <div className="col-7">
-              <button type="submit" id="loginButton" className="btn btn-outline-primary" disabled={!validateForm()}>Register</button>
+              <button type="submit" id="loginButton" className="btn btn-outline-primary"  disabled={!validateForm()}>Register</button>
             </div>
           </div>
         </div>
