@@ -28,7 +28,7 @@
 
 
 #chatCard {
-    background-color: rgb(221, 222, 243);
+    background-image: linear-gradient(rgb(0, 174, 255), rgb(80, 78, 184), rgb(19, 12, 119));
     width : 80%;
     height: 420px;
     padding-left: 0;
