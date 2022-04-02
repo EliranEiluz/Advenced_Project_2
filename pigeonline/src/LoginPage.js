@@ -31,34 +31,34 @@ function LoginPage({UsersArray}) {
   }
 
   return (
-    <form class="container-fluid" onSubmit={handleSubmit}>
-            <div id="cardLogin" class="card row">
-                <div class="card-body">
-                    <div class="row" id="picWrapper">
+    <form className="container-fluid" onSubmit={handleSubmit}>
+            <div id="cardLogin" className="card row">
+                <div className="card-body">
+                    <div className="row" id="picWrapper">
                           <img src="im4.png" id="logo"></img>
                     </div>
-                    <div class="mb-3 row">
-                        <label class="col-sm-6 col-lg-2">Username</label>
-                        <div class="col-10">
-                          <input name="username" type="text" class="form-control" placeholder="Please enter your username here..." onChange={handleChange} value={userValues.username} required></input>
+                    <div className="mb-3 row">
+                        <label className="col-sm-6 col-lg-2">Username</label>
+                        <div className="col-10">
+                          <input name="username" type="text" className="form-control" placeholder="Please enter your username here..." onChange={handleChange} value={userValues.username} required></input>
                         </div>
                       </div>
-                      <div class="mb-3 row">
-                        <label class="col-sm-6 col-lg-2">Password</label>
-                        <div class="col-10">
-                          <input name="password" type="password" class="form-control" placeholder="Please enter your password here..." onChange={handleChange} value={userValues.password} required></input>
+                      <div className="mb-3 row">
+                        <label className="col-sm-6 col-lg-2">Password</label>
+                        <div className="col-10">
+                          <input name="password" type="password" className="form-control" placeholder="Please enter your password here..." onChange={handleChange} value={userValues.password} required></input>
                         </div>
                       </div>
-                      <div class="container">
-                          <div class="row">
-                            <div class="col-7">
+                      <div className="container">
+                          <div className="row">
+                            <div className="col-7">
 
                                 Not Registered? <Link to='/register'>click here</Link> to join our community!
                                 
                               </div>
-                              <div class="col-5">
+                              <div className="col-5">
                               <Link to='/chat'>
-                                <button type="submit" id="loginButton" class="btn btn-outline-primary" disabled={!validateForm()}>
+                                <button type="submit" id="loginButton" className="btn btn-outline-primary" disabled={!validateForm()}>
                                   Login
                                 </button>
                               </Link>

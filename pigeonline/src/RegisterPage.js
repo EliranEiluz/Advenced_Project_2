@@ -1,59 +1,60 @@
 import './RegisterPage.css';
-import { Link } from 'react-router-dom';
+import { Link,Navigate,useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-
+import User from './index';
 
 function RegisterPage({UsersArray}) {
   const [userValues, setUserValues] = useState({username:'', password:'', validatePass:'',displayName:'', picture:''});
-  
+  var navigate = useNavigate();
+  const [isValidValues] = useState({validUserName:false, validPassword:false, validPassword2:false, validDisplayName:false, 
+  validPicture:false});
+
   function validateForm() {
-    /*
-    validateUserName();
-    validatePassword();
-    validatePassword2();
-    validateDisplayName();
-    validatePicture();
-    */
-    return validateUserName() && validatePassword() && validatePassword2() && validateDisplayName() && validatePicture();
+    return isValidValues.validUserName && isValidValues.validPassword && isValidValues.validPassword2 &&
+     isValidValues.validDisplayName && isValidValues.validPicture;
   }
 
   function validateUserName() {
-    let x = document.getElementById("usernameError")
-    if(userValues.username) {
-      if(!UsersArray.find((e) => e.username == userValues.username)) {
-          x.innerHTML = "";
+    if(userValues.username.length > 0) {
+        document.getElementById("usernameError").style.display = "none";
+        document.getElementById("usedMessage").style.display = "none";
+      if(UsersArray.find((e) => e.username === userValues.username)) {
+        document.getElementById("usedMessage").style.display = "block"; 
       }
-    } else {
-        x.innerHTML = "Username must contain at least one character."
     }
-    
-    return userValues.username > 0 && !UsersArray.find((e) => e.username == userValues.username);
+    else {
+      document.getElementById("usedMessage").style.display = "none"; 
+      document.getElementById("usernameError").style.display = "block";
+    }
+    return userValues.username.length > 0 && !UsersArray.find((e) => e.username === userValues.username);
   }
 
   function validateDisplayName() {
-    let x = document.getElementById("displayNameError")
-    if(userValues.displayName) {
-        x.innerHTML = "";
+    if(userValues.displayName.length > 0) {
+      document.getElementById("displayNameError").style.display = "none";
+    } else {
+      document.getElementById("displayNameError").style.display = "block";
     }
-    else {
-        x.innerHTML = "The Display name must contain at least one character."
-    }
-    return userValues.displayName > 0
+    return userValues.displayName.length > 0;
   }
 
   function validatePassword() {
-    let x = document.getElementById("passwordError")
-    if (userValues.password > 7) {
-      x.innerHTML = "";
+    if (userValues.password.length > 7) {
+      document.getElementById("passwordError").style.display = "none";
+    } else {
+      document.getElementById("passwordError").style.display = "block";
     }
-    else {
-      x.innerHTML = "Password must contain at least 8 characters."
-    }
-    return userValues.password > 7 
+    return userValues.password.length > 7 
   }
 
   function validatePassword2() {
-    return userValues.password == userValues.validatePass;
+    if (userValues.password === userValues.validatePass && userValues.password.length > 0) {
+      document.getElementById("validatePassError").style.display = "none";
+    }
+    else {
+      document.getElementById("validatePassError").style.display = "block";
+    }
+    return userValues.password === userValues.validatePass;
   }
 
 
@@ -67,60 +68,82 @@ function RegisterPage({UsersArray}) {
       ...userValues,
       [name]:value
     })
+    validityCheck(name, value);
+  }
+
+  function validityCheck(name, value) {
+    switch(name) {
+      case 'username':
+        userValues.username = value;
+        if(validateUserName()) {
+          isValidValues.validUserName = true;
+        } 
+        else {
+          isValidValues.validUserName = false;
+        }
+        break;
+      case 'password':
+        userValues.password = value;
+        if(validatePassword()) {
+          isValidValues.validPassword = true;
+        }
+        else {
+          isValidValues.validPassword = false;
+        }
+        break;
+      case 'validatePass':
+        userValues.validatePass = value;
+        if(validatePassword2()) {
+          isValidValues.validPassword2 = true;
+        }
+        else {
+          isValidValues.validPassword2 = false;
+        }
+        break;
+      case 'displayName':
+        userValues.displayName = value;
+        if(validateDisplayName()) {
+          isValidValues.validDisplayName = true;
+        }
+        else {
+          isValidValues.validDisplayName = false;
+        }
+        break;
+      case 'picture':
+        userValues.picture = value;
+        if(validatePicture()) {
+          isValidValues.validPicture = true;
+        } 
+        else {
+          isValidValues.validPicture = false;
+        }
+        break;
+    }
   }
 
   function handleSubmit(event) {
+    UsersArray.push(new User(userValues.username, userValues.password, userValues.displayName, userValues.picture));
     event.preventDefault();
+    navigate('/')
   }
-
-
-/*
-  function handleInvalid(str,elementName) {
-    var func;
-    switch(elementName) {
-      case 'username':
-        func = validateUserName;
-        break;
-      case 'password':
-        func = validatePassword;
-        break;
-      case 'password2':
-        func = validatePassword2;
-        break;
-      case 'displayName':
-        func = validateDisplayName;
-        break;
-      case 'picture':
-        func = validatePicture;
-        break;
-    }
-    if (!func()) {
-      return (
-        <div>
-          {str}
-        </div>
-      );
-    }
-    else {
-      return(<></>);
-    }
-  }
-*/
 
 
   return (
-    <form className="container-fluid" onSubmit={handleSubmit}>
+    <form className="container-fluid" onSubmit={handleSubmit} >
     <div id="cardRegister" className="card row">
       <div className="card-body">
         <div className="row" id="picWrapper">
-          <img src="im4.png" id="logo" />
+          <img src="im4.png" id="logo" alt="logo"/>
         </div>
         <div className="mb-3 row">
-          <label for="username" className="col-sm-6 col-lg-2">Username</label>
+          <label className="col-sm-6 col-lg-2">Username</label>
           <div className="col-10">
-            <input id="username" name="username" type="text" className="form-control" placeholder="Please enter your username here..." onChange={handleChange} />
+            <input name="username" type="text" className="form-control" placeholder="Please enter your username here..." onChange={handleChange} />
             <div id="usernameError" className="error-divs">
-            Username must contain at least one character.
+              Username must contain at least one character.
+            </div>
+            <div id="usedMessage" className="error-divs">
+              Sorry, this username is already taken.
             </div>
           </div>
         </div>
@@ -154,7 +177,7 @@ function RegisterPage({UsersArray}) {
         <div className="mb-3 row">
           <label className="col-sm-6 col-lg-2">Upload picture</label>
           <div className="col-10">
-            <input name="picture" type="file" id="inputGroupFile02" className="form-control" onChange={handleChange}/>
+            <input name="picture" type="file" accept="image/*" id="inputGroupFile02" className="form-control" onChange={handleChange}/>
             <div id="pictureError" className="error-divs">
             </div>
           </div>
@@ -165,7 +188,7 @@ function RegisterPage({UsersArray}) {
               Already Registered? <Link to='/'>click here!</Link>
             </div>
             <div className="col-7">
-              <button type="submit" id="loginButton" className="btn btn-outline-primary" disabled={!validateForm}>Register</button>
+              <button type="submit" id="loginButton" className="btn btn-outline-primary"  disabled={!validateForm()}>Register</button>
             </div>
           </div>
         </div>
