@@ -17,7 +17,7 @@ function LoginPage({UsersArray}) {
       navigate('/chat');
     }
     else {
-      alert('failed')
+      document.getElementById('wrongInput').style.display = "block";
     }
     event.preventDefault();
   }
@@ -36,6 +36,10 @@ function LoginPage({UsersArray}) {
                 <div className="card-body">
                     <div className="row" id="picWrapper">
                           <img src="im4.png" id="logo"></img>
+                    </div>
+                    <div className="alert alert-danger alert-dismissable fade show" role="alert" id="wrongInput">
+                      Wrong username or password. Please try again, or <Link to='/register'>click here</Link> if you are not registered.
+                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="close-alert-btn"></button>
                     </div>
                     <div className="mb-3 row">
                         <label className="col-sm-6 col-lg-2">Username</label>

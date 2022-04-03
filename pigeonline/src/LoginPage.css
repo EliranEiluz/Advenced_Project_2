@@ -9,6 +9,7 @@
     left: 10%;
     border-width: 3pt;
     border-color: rgb(13, 13, 88);
+    overflow: auto;
 }
 
 .container {
@@ -44,3 +45,10 @@
     border-color: rgb(11, 11, 92);
 }
 
+#wrongInput{
+    display:none;
+}
+
+#close-alert-btn {
+    float:right;
+}
