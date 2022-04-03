@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import './LoginPage.css';
 import { useState } from 'react';
 
@@ -7,14 +7,14 @@ import { useState } from 'react';
 function LoginPage({UsersArray}) {
 
   const [userValues, setUserValues] = useState({username:'', password:''});
-
+  var navigate = useNavigate();
   function validateForm() {
     return userValues.username.length > 0 && userValues.password.length > 7;
   }
   
   function handleSubmit(event) {
     if(UsersArray.find((e) => e.username == userValues.username && e.password == userValues.password)) {
-      alert('succsess')
+      navigate('/chat');
     }
     else {
       alert('failed')
@@ -57,11 +57,9 @@ function LoginPage({UsersArray}) {
                                 
                               </div>
                               <div className="col-5">
-                              <Link to='/chat'>
                                 <button type="submit" id="loginButton" className="btn btn-outline-primary" disabled={!validateForm()}>
                                   Login
                                 </button>
-                              </Link>
                               </div>
                           </div>
                       </div>
