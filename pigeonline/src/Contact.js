@@ -1,8 +1,9 @@
 import './ChatPage.css';
 import ChatMenu from './ChatMenu';
+import ChatWindow from './ChatWindow';
 
 
-function ChatPage() {
+function Contact() {
 
   return (
     <div className="container-fluid">
@@ -15,6 +16,8 @@ function ChatPage() {
       <div className="card-body row">
       
         <ChatMenu />
+        <ChatWindow />
+        
         
       </div>
     </div>
@@ -22,5 +25,5 @@ function ChatPage() {
   );
 }
 
-export default ChatPage;
+export default Contact;
 

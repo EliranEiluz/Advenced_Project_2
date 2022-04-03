@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './ChatPage.css';
 
 function ChatMenu() {
@@ -34,10 +35,10 @@ function ChatMenu() {
     </div>
 
     <ul id="chatList" className="list-group">
-      <li><button className="user" type="button">User-1</button></li>
-      <li><button className="user" type="button">User-2</button></li>
-      <li><button className="user" type="button">User-3</button></li>
-      <li><button className="user" type="button">User-4</button></li>
+      <li><Link to='/contact'><button className="user" type="button">User-1</button></Link></li>
+      <li><Link to='/contact'><button className="user" type="button">User-2</button></Link></li>
+      <li><Link to='/contact'><button className="user" type="button">User-3</button></Link></li>
+      <li><Link to='/contact'><button className="user" type="button">User-4</button></Link></li>
     </ul>
   </div>
   );
