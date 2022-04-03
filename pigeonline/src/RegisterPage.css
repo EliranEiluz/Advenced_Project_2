@@ -9,6 +9,8 @@
     left: 10%;
     border-width: 3pt;
     border-color: rgb(13, 13, 88);
+    overflow: auto;
+    padding-bottom: 10px;
 }
 
 .container {
