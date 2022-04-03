@@ -1,5 +1,5 @@
 import './RegisterPage.css';
-import { Link,Navigate,useNavigate } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import User from './index';
 
@@ -126,7 +126,7 @@ function RegisterPage({UsersArray}) {
   function handleSubmit(event) {
     UsersArray.push(new User(userValues.username, userValues.password, userValues.displayName, userValues.picture));
     event.preventDefault();
-    navigate('/')
+    navigate('/chat')
   }
 
 
