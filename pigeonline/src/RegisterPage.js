@@ -84,6 +84,7 @@ function RegisterPage({UsersArray}) {
         break;
       case 'password':
         userValues.password = value;
+        validatePassword2()
         if(validatePassword()) {
           isValidValues.validPassword = true;
         }
@@ -93,6 +94,7 @@ function RegisterPage({UsersArray}) {
         break;
       case 'validatePass':
         userValues.validatePass = value;
+        validatePassword()
         if(validatePassword2()) {
           isValidValues.validPassword2 = true;
         }
