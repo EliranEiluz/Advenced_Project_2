@@ -134,8 +134,11 @@ function RegisterPage({UsersArray}) {
     <form className="container-fluid" onSubmit={handleSubmit} >
     <div id="cardRegister" className="card row">
       <div className="card-body">
-        <div className="row" id="picWrapper">
-          <img src="im4.png" id="logo" alt="logo"/>
+      <div className="row">
+          <div className="col-12">
+            <img src="LoginLogo.jpg" id="logo"></img>
+            <p id="slogan">Communicate like the old days.Nowadays.</p>
+          </div>
         </div>
         <div className="mb-3 row">
           <label className="col-sm-6 col-lg-2">Username</label>

@@ -34,8 +34,12 @@ function LoginPage({UsersArray}) {
     <form className="container-fluid" onSubmit={handleSubmit}>
             <div id="cardLogin" className="card row">
                 <div className="card-body">
-                    <div className="row" id="picWrapper">
-                          <img src="im4.png" id="logo"></img>
+                    <div className="row">
+                      <div className="col-12">
+                        <img src="LoginLogo.jpg" id="logo"></img>
+                        <p id="slogan">Communicate like the old days.Nowadays.</p>
+                        <br></br>
+                      </div>
                     </div>
                     <div className="alert alert-danger alert-dismissable fade show" role="alert" id="wrongInput">
                       Wrong username or password. Please try again, or <Link to='/register'>click here</Link> if you are not registered.
@@ -55,17 +59,19 @@ function LoginPage({UsersArray}) {
                       </div>
                       <div className="container">
                           <div className="row">
-                            <div className="col-7">
+                            <div className="col-6">
 
                                 Not Registered? <Link to='/register'>click here</Link> to join our community!
                                 
                               </div>
-                              <div className="col-5">
+                              <div className="col-6">
                                 <button type="submit" id="loginButton" className="btn btn-outline-primary" disabled={!validateForm()}>
                                   Login
                                 </button>
                               </div>
                           </div>
+                          <br></br>
+                          <p id="moreInfo">PigeOnline is the fastest and safest way to communicate.(sample)</p>
                       </div>
                 </div>
               </div>
