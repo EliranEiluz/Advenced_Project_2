@@ -30,7 +30,7 @@ ReactDOM.render(
       <Route exact path='/contact' element={<Contact />}></Route>
       <Route exact path='/chat' element={<ChatPage />}></Route>
       <Route exact path='/register' element={<RegisterPage UsersArray={UsersArray}/>}></Route>
-      <Route path='/' element={<SampleChat UsersArray={UsersArray}/>}></Route>
+      <Route path='/' element={<LoginPage UsersArray={UsersArray}/>}></Route>
     </Routes>
     </BrowserRouter>
   </React.StrictMode>
