@@ -10,7 +10,7 @@ img{ max-width:100%;}
   border: 1px solid #c4c4c4;
   clear: both;
   overflow: hidden;
-  overflow-x : auto;
+
 }
 .top_spac{ margin: 20px 0 0;}
 
@@ -27,6 +27,7 @@ img{ max-width:100%;}
   color: #05728f;
   font-size: 21px;
   margin: auto;
+  margin-top: 5%;
 }
 .srch_bar input{ border:1px solid #cdcdcd; border-width:0 0 1px 0; width:80%; padding:2px 0 4px 6px; background:none;}
 .srch_bar .input-group-addon button {
@@ -137,10 +138,7 @@ img{ max-width:100%;}
   margin-right: 0;
   padding-right: 0;
 }
-.messaging {
-   padding: 0 0 0 0;
-   overflow-x : auto;
-  }
+.messaging { padding: 0 0 0 0;}
 .msg_history {
   height: 516px;
   overflow-y: auto;
