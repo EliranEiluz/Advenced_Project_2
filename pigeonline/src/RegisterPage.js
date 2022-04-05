@@ -135,7 +135,7 @@ function RegisterPage({UsersArray}) {
     <div id="cardRegister" className="card row">
       <div className="card-body">
       <div className="row">
-          <div className="col-12">
+          <div className="col-12" id="logoWrapper">
             <img src="LoginLogo.jpg" id="logo"></img>
             <p id="slogan">Communicate like the old days.Nowadays.</p>
           </div>
