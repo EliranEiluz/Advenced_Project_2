@@ -1,4 +1,6 @@
 import './ChatPage.css';
+import './SampleChat.css';
+
 import ChatMenu from './ChatMenu';
 import ChatWindow from './ChatWindow';
 
@@ -6,22 +8,19 @@ import ChatWindow from './ChatWindow';
 function Contact() {
 
   return (
-    <div className="container-fluid">
+    <>
     <div className="row" id="Bar">
       <div className="col"><img src="im4.png" id="leftLogo" /></div>
-      <div className="col" style={{paddingRight: 0}}><img src="logo.png" id="webLogo" /></div>
+      <div className="col" style={{ paddingRight: 0 }}><img src="logo.png" id="webLogo" /></div>
     </div>
 
-    <div id="chatCard" className="card">
-      <div className="card-body row">
-      
+    <div className="messaging">
+      <div className="inbox_msg">
         <ChatMenu />
         <ChatWindow />
-        
-        
       </div>
     </div>
-  </div>
+  </>
   );
 }
 

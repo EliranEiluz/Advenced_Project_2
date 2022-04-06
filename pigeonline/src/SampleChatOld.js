@@ -2,7 +2,7 @@ import './SampleChat.css'
 import { Link } from 'react-router-dom';
 
 
-function SampleChat() {
+function SampleChatOld() {
     return(
       <>
       <div className="row" id="Bar">
@@ -350,4 +350,4 @@ function SampleChat() {
     )
 }
 
-export default SampleChat;
+export default SampleChatOld;
