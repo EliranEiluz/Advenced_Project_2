@@ -15,12 +15,12 @@ img{ max-width:100%;}
 
 
 .recent_heading {float: left; width:40%;}
-.srch_bar {
+.add_bar {
   display: inline-block;
   text-align: right;
   width: 60%;
 }
-.headind_srch{
+.headind_bar{
   padding:10px 29px 5px 20px;
   overflow:hidden;
   border-bottom:1px solid #c4c4c4;
