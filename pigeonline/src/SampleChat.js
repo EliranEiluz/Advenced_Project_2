@@ -1,4 +1,6 @@
 import './SampleChat.css' 
+import { Link } from 'react-router-dom';
+
 
 function SampleChat() {
     return(
@@ -42,26 +44,9 @@ function SampleChat() {
         </div>
       </div>
       <div className="inbox_chat">
-        <div className="chat_list active_chat">
-          <div className="chat_people">
-            <div className="chat_img">
-              {" "}
-              <img
-                src="https://ptetutorials.com/images/user-profile.png"
-                alt="sunil"
-              />{" "}
-            </div>
-            <div className="chat_ib">
-              <h5>
-                Sunil Rajput <span className="chat_date">Dec 25</span>
-              </h5>
-              <p>
-                Test, which is a new approach to have all solutions astrology
-                under one roof.
-              </p>
-            </div>
-          </div>
-        </div>
+
+      <Link to='/contact'>
+      <button className="li_user">
         <div className="chat_list">
           <div className="chat_people">
             <div className="chat_img">
@@ -82,6 +67,11 @@ function SampleChat() {
             </div>
           </div>
         </div>
+        </button>
+        </Link>
+
+        <Link to='/contact'>
+      <button className="li_user">
         <div className="chat_list">
           <div className="chat_people">
             <div className="chat_img">
@@ -102,6 +92,11 @@ function SampleChat() {
             </div>
           </div>
         </div>
+        </button>
+        </Link>
+
+        <Link to='/contact'>
+      <button className="li_user">
         <div className="chat_list">
           <div className="chat_people">
             <div className="chat_img">
@@ -122,6 +117,11 @@ function SampleChat() {
             </div>
           </div>
         </div>
+        </button>
+        </Link>
+
+        <Link to='/contact'>
+      <button className="li_user">
         <div className="chat_list">
           <div className="chat_people">
             <div className="chat_img">
@@ -142,6 +142,11 @@ function SampleChat() {
             </div>
           </div>
         </div>
+        </button>
+        </Link>
+
+        <Link to='/contact'>
+      <button className="li_user">
         <div className="chat_list">
           <div className="chat_people">
             <div className="chat_img">
@@ -162,6 +167,11 @@ function SampleChat() {
             </div>
           </div>
         </div>
+        </button>
+        </Link>
+
+        <Link to='/contact'>
+      <button className="li_user">
         <div className="chat_list">
           <div className="chat_people">
             <div className="chat_img">
@@ -182,8 +192,37 @@ function SampleChat() {
             </div>
           </div>
         </div>
+        </button>
+        </Link>
+
+        <Link to='/contact'>
+      <button className="li_user">
+        <div className="chat_list">
+          <div className="chat_people">
+            <div className="chat_img">
+              {" "}
+              <img
+                src="https://ptetutorials.com/images/user-profile.png"
+                alt="sunil"
+              />{" "}
+            </div>
+            <div className="chat_ib">
+              <h5>
+                Sunil Rajput <span className="chat_date">Dec 25</span>
+              </h5>
+              <p>
+                Test, which is a new approach to have all solutions astrology
+                under one roof.
+              </p>
+            </div>
+          </div>
+        </div>
+        </button>
+        </Link>
+
       </div>
     </div>
+    
     <div className="mesgs">
       <div className="msg_history">
         <div className="incoming_msg">
