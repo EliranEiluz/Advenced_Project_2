@@ -23,15 +23,15 @@ function RegisterPage({UsersArray}) {
       }
       else {
         document.getElementById("usernameError").style.display = "unset";
-          document.getElementById("usernameError").style.color = "rgb(15, 203, 15)";
-          document.getElementById("usernameError").innerHTML = "Valid !"
+        document.getElementById("usernameError").style.color = "rgb(15, 203, 15)";
+        document.getElementById("usernameError").innerHTML = "Valid !"
       }
     }
     else {
       document.getElementById("usedMessage").style.display = "none"; 
       document.getElementById("usernameError").style.display = "block";
       document.getElementById("usernameError").style.color = "red";
-          document.getElementById("usernameError").innerHTML = "Username must contain at least one character."
+      document.getElementById("usernameError").innerHTML = "Username must contain at least one character."
     }
     return userValues.username.length > 0 && !UsersArray.find((e) => e.username === userValues.username);
   }
@@ -39,12 +39,12 @@ function RegisterPage({UsersArray}) {
   function validateDisplayName() {
     if(userValues.displayName.length > 0) {
       document.getElementById("displayNameError").style.display = "unset";
-          document.getElementById("displayNameError").style.color = "rgb(15, 203, 15)";
-          document.getElementById("displayNameError").innerHTML = "Valid !"
+      document.getElementById("displayNameError").style.color = "rgb(15, 203, 15)";
+      document.getElementById("displayNameError").innerHTML = "Valid !"
     } else {
       document.getElementById("displayNameError").style.display = "block";
       document.getElementById("displayNameError").style.color = "red";
-          document.getElementById("displayNameError").innerHTML = "The display name must contain at least one character."
+      document.getElementById("displayNameError").innerHTML = "The display name must contain at least one character."
     }
     return userValues.displayName.length > 0;
   }
@@ -52,12 +52,12 @@ function RegisterPage({UsersArray}) {
   function validatePassword() {
     if (userValues.password.length > 7) {
       document.getElementById("passwordError").style.display = "block";
-          document.getElementById("passwordError").style.color = "rgb(15, 203, 15)";
-          document.getElementById("passwordError").innerHTML = "Valid !"
+      document.getElementById("passwordError").style.color = "rgb(15, 203, 15)";
+      document.getElementById("passwordError").innerHTML = "Valid !"
     } else {
       document.getElementById("passwordError").style.display = "block";
       document.getElementById("passwordError").style.color = "red";
-          document.getElementById("passwordError").innerHTML = "Password must contain at least 8 characters."
+      document.getElementById("passwordError").innerHTML = "Password must contain at least 8 characters."
     }
     return userValues.password.length > 7 
   }
@@ -65,13 +65,13 @@ function RegisterPage({UsersArray}) {
   function validatePassword2() {
     if (userValues.password === userValues.validatePass && userValues.password.length > 0) {
       document.getElementById("validatePassError").style.display = "unset";
-          document.getElementById("validatePassError").style.color = "rgb(15, 203, 15)";
-          document.getElementById("validatePassError").innerHTML = "Valid !"
+      document.getElementById("validatePassError").style.color = "rgb(15, 203, 15)";
+      document.getElementById("validatePassError").innerHTML = "Valid !"
     }
     else {
       document.getElementById("validatePassError").style.display = "block";
       document.getElementById("validatePassError").style.color = "red";
-          document.getElementById("validatePassError").innerHTML = "This field must be equal to the password above."
+      document.getElementById("validatePassError").innerHTML = "This field must be equal to the password above."
     }
     return userValues.password === userValues.validatePass;
   }
