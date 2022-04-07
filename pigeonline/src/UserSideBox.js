@@ -6,7 +6,7 @@ import './SampleChat.css'
 function UserSideBox({image,displayname,date,lastMessage,username}) {
     return(
         
-        <Link to='/contact' params={{username:username}}>
+        <Link to={'/contact'} state={{user: username}}>
         <button className="li_user">
           <div className="chat_list">
             <div className="chat_people">

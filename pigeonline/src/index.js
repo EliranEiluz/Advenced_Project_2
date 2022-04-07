@@ -29,7 +29,7 @@ class Message {
 }
 
 class Chat {
-  constructor(displayName, image, lastMessage, date, username) {
+  constructor(username, displayName, image, lastMessage, date) {
     this.username = username
     this.displayName = displayName;
     this.image = image;
@@ -41,7 +41,7 @@ class Chat {
 
 
 const UsersArray = [new User('wow','wowwowwow','wow','im4.jpeg')];
-UsersArray[0].chats.push(new Chat('ben', 'im4.png', 'hey ben', "Dec 25"), new Chat('ben', 'im4.png', 'hey ben', "Dec 25"))
+UsersArray[0].chats.push(new Chat('ben','ben', 'im4.png', 'hey ben', "Dec 25"), new Chat('ben', 'ben','im4.png', 'hey ben', "Dec 25"))
 const nowOnline = {onlineUser:null};
 
 ReactDOM.render(
