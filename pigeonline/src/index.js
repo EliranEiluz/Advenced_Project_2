@@ -10,7 +10,7 @@ import {BrowserRouter,Routes, Route } from 'react-router-dom';
 
 
 class User {
-  constructor(username, password,displayName, picture) {
+  constructor(username, password, displayName, picture) {
     this.username = username;
     this.displayName = displayName;
     this.password = password;
@@ -20,15 +20,17 @@ class User {
 }
 
 class Message {
-  constructor(from,messageContent,messageType) {
+  constructor(from, messageContent, messageType, messageDate) {
     this.from = from;
     this.messageContent = messageContent;
     this.messageType = messageType;
+    this.messageDate = messageDate;
   }
 }
 
 class Chat {
-  constructor(displayName, image, lastMessage, date) {
+  constructor(displayName, image, lastMessage, date, username) {
+    this.username = username
     this.displayName = displayName;
     this.image = image;
     this.messages = [];

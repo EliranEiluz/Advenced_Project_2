@@ -1,13 +1,22 @@
 import './ChatPage.css';
 import './SampleChat.css';
 import Message from './Message';
-function ChatWindow() {
+
+
+function ChatWindow({nowOnline}) {
+    function dateNow() {
+        const currentDate = new Date();
+        const date = currentDate.getHours() + ":" + currentDate.getMinutes() +
+        "|" + currentDate.getDay() + "/" + currentDate.getMonth() + "/" + currentDate.getFullYear();
+        return date;
+    }
 
   return (
     <div className="mesgs">
       <div className="msg_history">
-        <Message sender={"I"} content={"bla bla bla"}/>
+        <Message sender={nowOnline.onlineUser} content={"bla bla bla"} sendTo={nowOnline.onlineUser} nowOnline={nowOnline} type={"text"} date={dateNow()}/>
       </div>
+
       <div className="row type_msg">
       <div className='col-xl-1 col-sm-1 col-xs-1 col' id='sendBut'>
       <button className="SendButton msg_send_btn" type="button">

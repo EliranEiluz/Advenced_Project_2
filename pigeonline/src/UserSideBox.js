@@ -3,7 +3,7 @@ import './ChatPage.css';
 import './SampleChat.css'
 
 
-function UserSideBox({image,name,date,lastMessage}) {
+function UserSideBox({image,displayname,date,lastMessage,username}) {
     return(
         
         <Link to='/contact'>
@@ -19,7 +19,7 @@ function UserSideBox({image,name,date,lastMessage}) {
               </div>
               <div className="chat_ib">
                 <h5>
-                  {name} <span className="chat_date">{date}</span>
+                  {displayname} <span className="chat_date">{date}</span>
                 </h5>
                 <p>
                   {lastMessage}

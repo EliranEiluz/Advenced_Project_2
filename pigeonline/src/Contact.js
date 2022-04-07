@@ -1,12 +1,14 @@
 import './ChatPage.css';
 import './SampleChat.css';
-
+import UserSideBox from './UserSideBox';
+import { useState } from 'react';
 import ChatMenu from './ChatMenu';
 import ChatWindow from './ChatWindow';
 
 
 function Contact({nowOnline, UsersArray}) {
-
+  const [chats, setChats] = useState(nowOnline.onlineUser.chats.map((chat, key) => {
+    return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} key={key} username={chat.username}/>}));
   return (
     <>
     <div className="row" id="Bar">
@@ -16,8 +18,8 @@ function Contact({nowOnline, UsersArray}) {
 
     <div className="messaging">
       <div className="inbox_msg">
-      <ChatMenu nowOnline={nowOnline} UsersArray={UsersArray}/>
-        <ChatWindow />
+      <ChatMenu nowOnline={nowOnline} UsersArray={UsersArray} chats={chats} setChats={setChats}/>
+        <ChatWindow setChats={setChats} nowOnline={nowOnline}/>
       </div>
     </div>
   </>
