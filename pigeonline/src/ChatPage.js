@@ -3,8 +3,7 @@ import './SampleChat.css';
 import ChatMenu from './ChatMenu';
 
 
-function ChatPage() {
-
+function ChatPage({nowOnline}) {
   return (
     <>
       <div className="row" id="Bar">

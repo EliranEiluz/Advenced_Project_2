@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 
 
-function LoginPage({UsersArray}) {
+function LoginPage({UsersArray, nowOnline}) {
 
   const [userValues, setUserValues] = useState({username:'', password:''});
   var navigate = useNavigate();
@@ -14,6 +14,7 @@ function LoginPage({UsersArray}) {
   
   function handleSubmit(event) {
     if(UsersArray.find((e) => e.username == userValues.username && e.password == userValues.password)) {
+      nowOnline.onlineUser = UsersArray.find((e) => e.username == userValues.username);
       navigate('/chat');
     }
     else {

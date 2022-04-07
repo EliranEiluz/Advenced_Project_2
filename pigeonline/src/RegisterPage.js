@@ -3,7 +3,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import User from './index';
 
-function RegisterPage({UsersArray}) {
+function RegisterPage({UsersArray, nowOnline}) {
   const [userValues, setUserValues] = useState({username:'', password:'', validatePass:'',displayName:'', picture:''});
   var navigate = useNavigate();
   const [isValidValues] = useState({validUserName:false, validPassword:false, validPassword2:false, validDisplayName:false, 
@@ -143,7 +143,8 @@ function RegisterPage({UsersArray}) {
   }
 
   function handleSubmit(event) {
-    UsersArray.push(new User(userValues.username, userValues.password, userValues.displayName, userValues.picture));
+    nowOnline.onlineUser = new User(userValues.username, userValues.password, userValues.displayName, userValues.picture);
+    UsersArray.push(nowOnline.onlineUser);
     event.preventDefault();
     navigate('/chat')
   }

@@ -5,7 +5,7 @@ import ChatMenu from './ChatMenu';
 import ChatWindow from './ChatWindow';
 
 
-function Contact() {
+function Contact({nowOnline}) {
 
   return (
     <>
