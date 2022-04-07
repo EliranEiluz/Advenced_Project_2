@@ -7,14 +7,14 @@ function ChatWindow({nowOnline}) {
     function dateNow() {
         const currentDate = new Date();
         const date = currentDate.getHours() + ":" + currentDate.getMinutes() +
-        "|" + currentDate.getDay() + "/" + currentDate.getMonth() + "/" + currentDate.getFullYear();
+        " | " + currentDate.getDate() + "/" + ((currentDate.getMonth())+1) + "/" + currentDate.getFullYear();
         return date;
     }
 
   return (
     <div className="mesgs">
       <div className="msg_history">
-        <Message sender={nowOnline.onlineUser} content={"bla bla bla"} sendTo={nowOnline.onlineUser} nowOnline={nowOnline} type={"text"} date={dateNow()}/>
+        <Message sender={nowOnline.onlineUser} content={"New Message..."} sendTo={nowOnline.onlineUser} nowOnline={nowOnline} type={"text"} date={dateNow()}/>
       </div>
 
       <div className="row type_msg">
