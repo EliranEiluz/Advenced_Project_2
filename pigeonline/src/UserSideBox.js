@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './ChatPage.css';
 import './SampleChat.css'
-import  Chat from './index'
+
 
 function UserSideBox() {
     return(

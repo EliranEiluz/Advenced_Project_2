@@ -13,7 +13,7 @@ function ChatPage({nowOnline}) {
 
       <div className="messaging">
         <div className="inbox_msg">
-          <ChatMenu />
+          <ChatMenu nowOnline={nowOnline}/>
         </div>
       </div>
     </>

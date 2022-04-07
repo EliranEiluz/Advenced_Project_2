@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
+
 import './ChatPage.css';
 import './SampleChat.css'
 import AddUser from './AddUser';
 import UserSideBox from './UserSideBox'
 
-function ChatMenu() {
+function ChatMenu({nowOnline}) {
 
   return (
     <>
