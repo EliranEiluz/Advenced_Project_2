@@ -4,9 +4,11 @@ import UserSideBox from './UserSideBox';
 import { useState } from 'react';
 import ChatMenu from './ChatMenu';
 import ChatWindow from './ChatWindow';
+import { useParams } from 'react-router-dom';
 
 
 function Contact({nowOnline, UsersArray}) {
+  const params = useParams();
   const [chats, setChats] = useState(nowOnline.onlineUser.chats.map((chat, key) => {
     return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} key={key} username={chat.username}/>}));
   return (
