@@ -76,9 +76,21 @@ function RegisterPage({UsersArray, nowOnline}) {
     return userValues.password === userValues.validatePass;
   }
 
-
   function validatePicture() {
-    return true;
+    var fileName = userValues.picture ;
+    var idxDot = fileName.lastIndexOf(".") + 1;
+    var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+    if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+        document.getElementById("pictureError").style.display = "unset";
+        document.getElementById("pictureError").style.color = "rgb(15, 203, 15)";
+        document.getElementById("pictureError").innerHTML = "Valid !"
+        return true;
+    }else{
+        document.getElementById("pictureError").style.display = "block";
+        document.getElementById("pictureError").style.color = "red";
+        document.getElementById("pictureError").innerHTML = "Only jpg/jpeg and png files are allowed."
+        return false;
+    }   
   }
 
   function handleChange(e) {
@@ -204,6 +216,7 @@ function RegisterPage({UsersArray, nowOnline}) {
           <div className="col-10">
             <input name="picture" type="file" accept="image/*" id="inputGroupFile02" className="form-control" onChange={handleChange}/>
             <div id="pictureError" className="error-divs">
+            Only jpg/jpeg and png files are allowed.
             </div>
           </div>
         </div>
