@@ -18,7 +18,7 @@ const toAdd = useState({newUser : '', objectUser : null});
         setChats(
           nowOnline.onlineUser.chats.map((chat, key) => {
             console.log(chat.displayName);
-            return <UserSideBox name={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} key={key}/>})
+            return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} key={key}/>})
         );
       }
     }
