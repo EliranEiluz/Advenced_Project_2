@@ -183,7 +183,7 @@ img{ max-width:100%;}
   padding: 0px;
 }
 .dropdown-menu {
-  width: 120%;
+  width: auto;
 }
 
 .li_user {
