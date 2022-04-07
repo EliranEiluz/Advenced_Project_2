@@ -1,8 +1,33 @@
 import './ChatPage.css';
 import './SampleChat.css';
+import { useState } from 'react';
+import {Chat} from './index'
+import UserSideBox from './UserSideBox';
 
+function AddUser({nowOnline, UsersArray, setChats}) {
+const toAdd = useState({newUser : '', objectUser : null});
 
-function AddUser() {
+  function handleClick() {
+    if(!UsersArray.find((e) => e.username == toAdd.newUser)) {
+      alert('not found')
+    }
+    else {
+      toAdd.objectUser = UsersArray.find((e) => e.username == toAdd.newUser);
+      if(!nowOnline.onlineUser.chats.find((e) => e.displayName == toAdd.objectUser.displayName)) {
+        nowOnline.onlineUser.chats.push(new Chat(toAdd.objectUser.displayName, toAdd.objectUser.image, "", ""))
+        setChats(
+          nowOnline.onlineUser.chats.map((chat, key) => {
+            console.log(chat.displayName);
+            return <UserSideBox name={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} key={key}/>})
+        );
+      }
+    }
+  }
+
+  function handleChange(e) {
+    const {value} = e.target;
+    toAdd.newUser = value;
+  }
 
   return (
     <>
@@ -21,10 +46,10 @@ function AddUser() {
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
-          <input type="text" className="form-control" placeholder="Contact's identifier"></input>
+          <input type="text" className="form-control" placeholder="Contact's identifier" onChange={handleChange}></input>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-primary">Add</button>
+            <button type="button" className="btn btn-primary" onClick={handleClick} data-bs-dismiss="modal">Add</button>
           </div>
         </div>
       </div>

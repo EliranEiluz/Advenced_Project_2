@@ -1,7 +1,7 @@
 import './RegisterPage.css';
 import { Link,useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import User from './index';
+import {User} from './index';
 
 function RegisterPage({UsersArray, nowOnline}) {
   const [userValues, setUserValues] = useState({username:'', password:'', validatePass:'',displayName:'', picture:''});

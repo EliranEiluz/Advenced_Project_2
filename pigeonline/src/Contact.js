@@ -5,7 +5,7 @@ import ChatMenu from './ChatMenu';
 import ChatWindow from './ChatWindow';
 
 
-function Contact({nowOnline}) {
+function Contact({nowOnline, UsersArray}) {
 
   return (
     <>
@@ -16,7 +16,7 @@ function Contact({nowOnline}) {
 
     <div className="messaging">
       <div className="inbox_msg">
-        <ChatMenu />
+      <ChatMenu nowOnline={nowOnline} UsersArray={UsersArray}/>
         <ChatWindow />
       </div>
     </div>

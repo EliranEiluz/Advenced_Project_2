@@ -28,23 +28,26 @@ class Message {
 }
 
 class Chat {
-  constructor(displayName, image) {
+  constructor(displayName, image, lastMessage, date) {
     this.displayName = displayName;
     this.image = image;
     this.messages = [];
+    this.lastMessage = lastMessage;
+    this.date = date;
   }
 }
 
 
 const UsersArray = [new User('wow','wowwowwow','wow','im4.jpeg')];
+UsersArray[0].chats.push(new Chat('ben', 'im4.png', 'hey ben', "Dec 25"), new Chat('ben', 'im4.png', 'hey ben', "Dec 25"))
 const nowOnline = {onlineUser:null};
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <Routes>
-      <Route exact path='/contact' element={<Contact nowOnline={nowOnline}/>}></Route>
-      <Route exact path='/chat' element={<ChatPage nowOnline={nowOnline}/>}></Route>
+      <Route exact path='/contact' element={<Contact nowOnline={nowOnline} UsersArray={UsersArray}/>}></Route>
+      <Route exact path='/chat' element={<ChatPage nowOnline={nowOnline} UsersArray={UsersArray}/>}></Route>
       <Route exact path='/register' element={<RegisterPage UsersArray={UsersArray} nowOnline={nowOnline}/>}></Route>
       <Route path='/' element={<LoginPage UsersArray={UsersArray} nowOnline={nowOnline}/>}></Route>
     </Routes>
@@ -54,5 +57,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-export default User;
+export  {User, Chat};
+
 

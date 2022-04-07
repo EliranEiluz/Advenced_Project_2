@@ -3,8 +3,9 @@ import './ChatPage.css';
 import './SampleChat.css'
 
 
-function UserSideBox() {
+function UserSideBox({image,name,date,lastMessage}) {
     return(
+        
         <Link to='/contact'>
         <button className="li_user">
           <div className="chat_list">
@@ -18,17 +19,17 @@ function UserSideBox() {
               </div>
               <div className="chat_ib">
                 <h5>
-                  Sunil Rajput <span className="chat_date">Dec 25</span>
+                  {name} <span className="chat_date">{date}</span>
                 </h5>
                 <p>
-                  Test, which is a new approach to have all solutions astrology
-                  under one roof.
+                  {lastMessage}
                 </p>
               </div>
             </div>
           </div>
           </button>
           </Link>
+          
     )
 }
 

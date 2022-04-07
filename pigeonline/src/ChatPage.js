@@ -1,9 +1,13 @@
 import './ChatPage.css';
 import './SampleChat.css';
 import ChatMenu from './ChatMenu';
+import UserSideBox from './UserSideBox';
+import { useState } from 'react';
 
 
-function ChatPage({nowOnline}) {
+function ChatPage({nowOnline, UsersArray}) {
+  const [chats, setChats] = useState(nowOnline.onlineUser.chats.map((chat, key) => {
+    return <UserSideBox name={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} key={key}/>}));
   return (
     <>
       <div className="row" id="Bar">
@@ -13,7 +17,7 @@ function ChatPage({nowOnline}) {
 
       <div className="messaging">
         <div className="inbox_msg">
-          <ChatMenu nowOnline={nowOnline}/>
+          <ChatMenu nowOnline={nowOnline} UsersArray={UsersArray} chats={chats} setChats={setChats}/>
         </div>
       </div>
     </>
