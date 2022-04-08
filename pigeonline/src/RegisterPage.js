@@ -50,16 +50,18 @@ function RegisterPage({UsersArray, nowOnline}) {
   }
 
   function validatePassword() {
-    if (userValues.password.length > 7) {
+    var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    if (userValues.password.match(passw)) {
       document.getElementById("passwordError").style.display = "block";
       document.getElementById("passwordError").style.color = "rgb(15, 203, 15)";
       document.getElementById("passwordError").innerHTML = "Valid !"
+      return true;
     } else {
       document.getElementById("passwordError").style.display = "block";
       document.getElementById("passwordError").style.color = "red";
-      document.getElementById("passwordError").innerHTML = "Password must contain at least 8 characters."
+      document.getElementById("passwordError").innerHTML = ("Choose at least 8 characters- one numeric digit, one uppercase and one lowercase letter.")
+      return false;
     }
-    return userValues.password.length > 7 
   }
 
   function validatePassword2() {
@@ -189,7 +191,7 @@ function RegisterPage({UsersArray, nowOnline}) {
           <div className="col-10">
             <input name="password" type="password" className="form-control" placeholder="Please enter your password here..." onChange={handleChange}/>
             <div id="passwordError" className="error-divs">
-              Password must contain at least 8 characters.
+            Choose at least 8 characters- one numeric digit, one uppercase and one lowercase letter.
             </div>
           </div>
         </div>
