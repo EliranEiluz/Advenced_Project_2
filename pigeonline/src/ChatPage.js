@@ -8,7 +8,8 @@ import { useState } from 'react';
 function ChatPage({nowOnline, UsersArray}) {
   const [chats, setChats] = useState(nowOnline.onlineUser.chats.map((chat, key) => {
     return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} key={key}/>}));
-  return (
+  
+    return (
     <>
       <div className="row" id="Bar">
         <div className="col"><img src="im4.png" id="leftLogo" /></div>

@@ -2,9 +2,19 @@ import './ChatPage.css';
 import './SampleChat.css';
 import Message from './Message';
 import DropUp from './DropUp';
+import { useState } from 'react';
 
 
-function ChatWindow({nowOnline}) {
+function ChatWindow({setChats, nowOnline, contactUserName}) {
+  
+  console.log(contactUserName)
+  // find the chat with the contact we push on his chat.
+  const currentChat = nowOnline.onlineUser.chats.find((e) => e.username == contactUserName)
+  // all the messages with the contact.
+  const [chatMessages, setChatMessages] = useState(currentChat.messages.map((message, key) => {
+    return <Message senderUserName={message.from} content={message.messageContent} setChats={setChats} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} key={key}/>}));
+  
+    // use this function only you send new message (input).
     function dateNow() {
         const currentDate = new Date();
         const date = currentDate.getHours() + ":" + currentDate.getMinutes() +
@@ -15,7 +25,8 @@ function ChatWindow({nowOnline}) {
   return (
     <div className="mesgs">
       <div className="msg_history">
-        <Message sender={nowOnline.onlineUser} content={"New Message..."} sendTo={nowOnline.onlineUser} nowOnline={nowOnline} type={"text"} date={dateNow()}/>
+      {/* show the messages.*/}
+        {chatMessages}
       </div>
 
       <div className="row type_msg">

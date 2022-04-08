@@ -1,8 +1,10 @@
 import './SampleChat.css';
 
-function Message({sender, content, setChats, sendTo, nowOnline, type,  date}) {
+function Message({senderUserName, content, setChats, nowOnline, type,  date}) { // delete sendTo, chande object sender to string.
+    
+console.log(senderUserName + "  ?  " + nowOnline.onlineUser.username)
 
-    if(sender.username == nowOnline.onlineUser) {
+    if(senderUserName == nowOnline.onlineUser.username) {
         return (
         <div className="outgoing_msg">
             <div className="sent_msg">

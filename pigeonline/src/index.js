@@ -44,6 +44,10 @@ const UsersArray = [new User('wow','wowwowwow','wow','im4.jpeg')];
 UsersArray[0].chats.push(new Chat('ben','Ben', 'im4.png', 'Hello World !', "March 25"),
 new Chat('eliran', 'Eliran','im4.png', 'Hey eliran !', "March 25"))
 
+UsersArray[0].chats[0].messages.push(new Message("wow", "Hello ben from wow", "text", "7/4"))
+UsersArray[0].chats[0].messages.push(new Message("ben", "Hello wow from ben.", "text", "7/4"))
+UsersArray[0].chats[1].messages.push(new Message("eliran", "Hello wow from eliran.", "text", "7/4"))
+
 const nowOnline = {onlineUser:null};
 
 ReactDOM.render(

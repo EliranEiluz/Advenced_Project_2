@@ -4,10 +4,15 @@ import './SampleChat.css'
 
 
 function UserSideBox({image,displayname,date,lastMessage,username}) {
+
+  function handleClick() {
+    // need to rerender the chat window.
+  }
+
     return(
         
         <Link to={'/contact'} state={{user: username}}>
-        <button className="li_user">
+        <button className="li_user" onClick={handleClick}>
           <div className="chat_list">
             <div className="chat_people">
               <div className="chat_img">

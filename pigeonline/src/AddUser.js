@@ -4,6 +4,7 @@ import { useState } from 'react';
 import {Chat} from './index'
 import UserSideBox from './UserSideBox';
 
+
 function AddUser({nowOnline, UsersArray, setChats}) {
 const toAdd = useState({newUser : '', objectUser : null});
 
@@ -13,7 +14,7 @@ const toAdd = useState({newUser : '', objectUser : null});
     }
     else {
       toAdd.objectUser = UsersArray.find((e) => e.username == toAdd.newUser);
-      if(!nowOnline.onlineUser.chats.find((e) => e.displayName == toAdd.objectUser.displayName)) {
+      if(!nowOnline.onlineUser.chats.find((e) => e.displayName == toAdd.objectUser.displayName)) { // need change to userName instead displayName.
         nowOnline.onlineUser.chats.push(new Chat(toAdd.objectUser.username, toAdd.objectUser.displayName, toAdd.objectUser.image, "", ""))
         setChats(
           nowOnline.onlineUser.chats.map((chat, key) => {
