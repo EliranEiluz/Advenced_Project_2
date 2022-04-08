@@ -9,6 +9,8 @@ function AddUser({nowOnline, UsersArray, setChats}) {
 const toAdd = useState({newUser : '', objectUser : null});
 
   function handleClick() {
+    document.getElementById("contentMessage").value = "";
+
     if(!UsersArray.find((e) => e.username == toAdd.newUser)) {
       alert('not found')
     }
@@ -47,7 +49,7 @@ const toAdd = useState({newUser : '', objectUser : null});
             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div className="modal-body">
-          <input type="text" className="form-control" placeholder="Contact's identifier" onChange={handleChange}></input>
+          <input type="text" id="contentMessage" className="form-control" placeholder="Contact's identifier" onChange={handleChange}></input>
           </div>
           <div className="modal-footer">
             <button type="button" className="btn btn-primary" onClick={handleClick} data-bs-dismiss="modal">Add</button>
