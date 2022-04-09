@@ -1,17 +1,20 @@
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import './ChatPage.css';
 import './SampleChat.css'
 
 
-function UserSideBox({image,displayname,date,lastMessage,username}) {
-
+function UserSideBox({image,displayname,date,lastMessage,username, setContact}) {
+  var navigation = useNavigate();
   function handleClick() {
-    // need to rerender the chat window.
+    if(setContact) {
+      setContact(username)
+    }
+    else {
+      navigation('/contact', {state:{user:username}})
+    }
   }
 
     return(
-        
-        <Link to={'/contact'} state={{user: username}}>
         <button className="li_user" onClick={handleClick}>
           <div className="chat_list">
             <div className="chat_people">
@@ -33,7 +36,6 @@ function UserSideBox({image,displayname,date,lastMessage,username}) {
             </div>
           </div>
           </button>
-          </Link>
           
     )
 }

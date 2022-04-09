@@ -18,7 +18,7 @@ function ChatPage({nowOnline, UsersArray}) {
 
       <div className="messaging">
         <div className="inbox_msg">
-          <ChatMenu nowOnline={nowOnline} UsersArray={UsersArray} chats={chats} setChats={setChats}/>
+          <ChatMenu nowOnline={nowOnline} UsersArray={UsersArray} chats={chats} setChats={setChats} setContact={null}/>
         </div>
       </div>
     </>

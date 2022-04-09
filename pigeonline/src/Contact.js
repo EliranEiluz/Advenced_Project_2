@@ -8,12 +8,10 @@ import { useLocation, useParams } from 'react-router-dom';
 
 
 function Contact({nowOnline, UsersArray})  {
-  
   const params = useLocation();
-  const contactUserName = params.state.user;
-
+  const [contactUserName, setContactUserName] = useState(params.state.user);
   const [chats, setChats] = useState(nowOnline.onlineUser.chats.map((chat, key) => {
-    return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} key={key}/>}));
+    return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} setContact={setContactUserName} key={key}/>}));
 
     return (
     <>
