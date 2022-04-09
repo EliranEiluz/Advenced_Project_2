@@ -8,16 +8,32 @@ import UserSideBox from './UserSideBox';
 function AddUser({nowOnline, UsersArray, setChats}) {
 const toAdd = useState({newUser : '', objectUser : null});
 
-  function handleClick() {
+  function handleAddClick() {
     document.getElementById("contentMessage").value = "";
-
-    if(!UsersArray.find((e) => e.username == toAdd.newUser)) {
-      alert('not found')
+    if(toAdd.newUser == nowOnline.onlineUser.username) {
+      if(document.getElementById("addYourself")) {
+        document.getElementById("addYourself").style.display = "block";
+      }
+      if(document.getElementById("notFound")) {
+        document.getElementById("notFound").style.display = "none";
+      }
     }
-    else if(toAdd.newUser == nowOnline.onlineUser.username) {
-      alert('you cant add yourself!!!')
+    else if(!UsersArray.find((e) => e.username == toAdd.newUser)) {
+      if(document.getElementById("addYourself")) {
+        document.getElementById("addYourself").style.display = "none";
+      }
+      if(document.getElementById("notFound")) {
+        document.getElementById("notFound").style.display = "block";
+      }
     }
     else {
+      if(document.getElementById("addYourself")) {
+        document.getElementById("addYourself").style.display = "none";
+      }
+      if(document.getElementById("notFound")) {
+        document.getElementById("notFound").style.display = "none";
+      }
+      document.getElementById("addBtn").modal("hide");
       toAdd.objectUser = UsersArray.find((e) => e.username == toAdd.newUser);
       if(!nowOnline.onlineUser.chats.find((e) => e.username == toAdd.objectUser.username)) { // need change to userName instead displayName.
         nowOnline.onlineUser.chats.push(new Chat(toAdd.objectUser.username, toAdd.objectUser.displayName, toAdd.objectUser.image, "", ""))
@@ -28,6 +44,15 @@ const toAdd = useState({newUser : '', objectUser : null});
             return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} key={key}/>})
         );
       }
+    }
+  }
+
+  function handleCloseClick() {
+    if(document.getElementById("addYourself")) {
+      document.getElementById("addYourself").style.display = "none";
+    }
+    if(document.getElementById("notFound")) {
+      document.getElementById("notFound").style.display = "none";
     }
   }
 
@@ -50,13 +75,20 @@ const toAdd = useState({newUser : '', objectUser : null});
         <div className="modal-content">
           <div className="modal-header">
             <h5 className="modal-title" id="ModalLabel">Add new contact</h5>
-            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            
+            <button type="button" className="btn-close" data-bs-dismiss="modal" onClick={handleCloseClick} aria-label="Close"></button>
           </div>
           <div className="modal-body">
+            <div class="alert alert-danger alert-dismissible fade show" id="notFound" role="alert">
+              <strong>The user not found.</strong>
+            </div>
+            <div class="alert alert-danger alert-dismissible fade show" id="addYourself" role="alert">
+              <strong>You can't chat with yourself.</strong>
+            </div>
           <input type="text" id="contentMessage" className="form-control" placeholder="Contact's identifier" onChange={handleChange}></input>
           </div>
           <div className="modal-footer">
-            <button type="button" className="btn btn-primary" onClick={handleClick} data-bs-dismiss="modal">Add</button>
+            <button type="button" id="addBtn" className="btn btn-primary" onClick={handleAddClick}>Add</button>
           </div>
         </div>
       </div>

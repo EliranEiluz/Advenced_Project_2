@@ -170,3 +170,13 @@ button.user:hover {
 .logoWrap {
     padding-right: 0;
 }
+
+#notFound {
+    display: none;
+    text-align: left;
+}
+
+#addYourself {
+    display: none;
+    text-align: left;
+}
