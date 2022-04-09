@@ -120,9 +120,11 @@ function RegisterPage({UsersArray, nowOnline}) {
         validatePassword2()
         if(validatePassword()) {
           isValidValues.validPassword = true;
+          isValidValues.validPassword2 = true;
         }
         else {
           isValidValues.validPassword = false;
+          isValidValues.validPassword2 = false;
         }
         break;
       case 'validatePass':
@@ -130,9 +132,11 @@ function RegisterPage({UsersArray, nowOnline}) {
         validatePassword()
         if(validatePassword2()) {
           isValidValues.validPassword2 = true;
+          isValidValues.validPassword = true;
         }
         else {
           isValidValues.validPassword2 = false;
+          isValidValues.validPassword = false;
         }
         break;
       case 'displayName':
