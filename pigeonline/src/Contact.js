@@ -4,7 +4,7 @@ import UserSideBox from './UserSideBox';
 import { useState } from 'react';
 import ChatMenu from './ChatMenu';
 import ChatWindow from './ChatWindow';
-import { useLocation } from 'react-router-dom';
+import { useLocation,Link } from 'react-router-dom';
 import Message from './Message';
 
 function Contact({nowOnline, UsersArray})  {
@@ -21,8 +21,8 @@ function Contact({nowOnline, UsersArray})  {
     return (
     <>
     <div className="row" id="Bar">
-      <div className="col"><img src="im4.png" id="leftLogo" /></div>
-      <div className="col logoWrap"><img src="logo.png" id="webLogo" /></div>
+      <div className="col"><Link to="/"><img src="im4.png" id="leftLogo" /></Link></div>
+      <div className="col logoWrap"><Link to="/"><img src="logo.png" id="webLogo" /></Link></div>
     </div>
 
     <div className="messaging">
