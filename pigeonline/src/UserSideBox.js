@@ -3,11 +3,12 @@ import './ChatPage.css';
 import './SampleChat.css'
 import Message from './Message';
 
-function UserSideBox({image,displayname,date,lastMessage,username, setMessages, nowOnline}) {
+function UserSideBox({image,displayname,date,lastMessage,username, setMessages, nowOnline, setContact}) {
   var navigation = useNavigate();
   function handleClick() {
     if(setMessages) {
       const currentChat = nowOnline.onlineUser.chats.find((e) => e.username == username)
+      setContact(username)
       setMessages(currentChat.messages.map((message, key) => {
         return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} key={key}/>}))
     }

@@ -14,9 +14,12 @@ const toAdd = useState({newUser : '', objectUser : null});
     if(!UsersArray.find((e) => e.username == toAdd.newUser)) {
       alert('not found')
     }
+    else if(toAdd.newUser == nowOnline.onlineUser.username) {
+      alert('you cant add yourself!!!')
+    }
     else {
       toAdd.objectUser = UsersArray.find((e) => e.username == toAdd.newUser);
-      if(!nowOnline.onlineUser.chats.find((e) => e.displayName == toAdd.objectUser.displayName)) { // need change to userName instead displayName.
+      if(!nowOnline.onlineUser.chats.find((e) => e.username == toAdd.objectUser.username)) { // need change to userName instead displayName.
         nowOnline.onlineUser.chats.push(new Chat(toAdd.objectUser.username, toAdd.objectUser.displayName, toAdd.objectUser.image, "", ""))
         setChats(
           nowOnline.onlineUser.chats.map((chat, key) => {

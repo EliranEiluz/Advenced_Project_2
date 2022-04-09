@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 function ChatPage({nowOnline, UsersArray}) {
   const [chats, setChats] = useState(nowOnline.onlineUser.chats.map((chat, key) => {
-    return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} nowOnline={nowOnline} key={key}/>}));
+    return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} nowOnline={nowOnline} setContact={null} setMessages={null} key={key}/>}));
   
     return (
     <>
