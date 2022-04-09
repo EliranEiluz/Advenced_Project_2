@@ -3,7 +3,6 @@ import './SampleChat.css';
 function Message({senderUserName, content, nowOnline, type,  date ,senderPicture}) { // delete sendTo, chande object sender to string.
     
 
-
     if(senderUserName == nowOnline.onlineUser.username) {
         return (
         <div className="outgoing_msg">

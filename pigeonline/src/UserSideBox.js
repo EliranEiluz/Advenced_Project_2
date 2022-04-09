@@ -10,7 +10,7 @@ function UserSideBox({image,displayname,date,lastMessage,username, setMessages, 
       const currentChat = nowOnline.onlineUser.chats.find((e) => e.username == username)
       setContact(username)
       setMessages(currentChat.messages.map((message, key) => {
-        return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} key={key}/>}))
+        return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} senderPicture={message.senderPicture} key={key}/>}))
     }
     else {
       navigation('/contact', {state:{user:username}})
