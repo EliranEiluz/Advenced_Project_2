@@ -1,8 +1,6 @@
 import './ChatPage.css';
 import './SampleChat.css';
-import Message from './Message';
 import DropUp from './DropUp';
-import { useState } from 'react';
 
 
 function ChatWindow({setChats, nowOnline, chatMessages}) {
