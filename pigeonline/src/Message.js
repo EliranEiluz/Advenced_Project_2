@@ -1,6 +1,6 @@
 import './SampleChat.css';
 
-function Message({senderUserName, content, setChats, nowOnline, type,  date}) { // delete sendTo, chande object sender to string.
+function Message({senderUserName, content, nowOnline, type,  date}) { // delete sendTo, chande object sender to string.
     
 console.log(senderUserName + "  ?  " + nowOnline.onlineUser.username)
 

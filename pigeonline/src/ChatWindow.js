@@ -5,15 +5,10 @@ import DropUp from './DropUp';
 import { useState } from 'react';
 
 
-function ChatWindow({setChats, nowOnline, contactUserName}) {
+function ChatWindow({setChats, nowOnline, chatMessages}) {
   
-  console.log(contactUserName)
   // find the chat with the contact we push on his chat.
-  const currentChat = nowOnline.onlineUser.chats.find((e) => e.username == contactUserName)
-  // all the messages with the contact.
-  const [chatMessages, setChatMessages] = useState(currentChat.messages.map((message, key) => {
-    return <Message senderUserName={message.from} content={message.messageContent} setChats={setChats} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} key={key}/>}));
-  
+
     // use this function only you send new message (input).
     function dateNow() {
         const currentDate = new Date();

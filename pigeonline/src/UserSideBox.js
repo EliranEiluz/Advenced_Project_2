@@ -1,13 +1,15 @@
 import { Link,useNavigate } from 'react-router-dom';
 import './ChatPage.css';
 import './SampleChat.css'
+import Message from './Message';
 
-
-function UserSideBox({image,displayname,date,lastMessage,username, setContact}) {
+function UserSideBox({image,displayname,date,lastMessage,username, setMessages, nowOnline}) {
   var navigation = useNavigate();
   function handleClick() {
-    if(setContact) {
-      setContact(username)
+    if(setMessages) {
+      const currentChat = nowOnline.onlineUser.chats.find((e) => e.username == username)
+      setMessages(currentChat.messages.map((message, key) => {
+        return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} key={key}/>}))
     }
     else {
       navigation('/contact', {state:{user:username}})

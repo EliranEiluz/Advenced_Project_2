@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 function ChatPage({nowOnline, UsersArray}) {
   const [chats, setChats] = useState(nowOnline.onlineUser.chats.map((chat, key) => {
-    return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} key={key}/>}));
+    return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} nowOnline={nowOnline} key={key}/>}));
   
     return (
     <>
@@ -18,7 +18,7 @@ function ChatPage({nowOnline, UsersArray}) {
 
       <div className="messaging">
         <div className="inbox_msg">
-          <ChatMenu nowOnline={nowOnline} UsersArray={UsersArray} chats={chats} setChats={setChats} setContact={null}/>
+          <ChatMenu nowOnline={nowOnline} UsersArray={UsersArray} chats={chats} setChats={setChats} setMessages={null}/>
         </div>
       </div>
     </>
