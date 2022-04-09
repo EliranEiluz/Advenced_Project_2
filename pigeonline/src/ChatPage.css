@@ -166,3 +166,7 @@ button.user:hover {
 {
     cursor: pointer;
 }
+
+.logoWrap {
+    padding-right: 0;
+}
