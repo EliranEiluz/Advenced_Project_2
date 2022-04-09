@@ -81,7 +81,7 @@ function RegisterPage({UsersArray, nowOnline}) {
   function validatePicture() {
     var fileName = userValues.picture ;
     var idxDot = fileName.lastIndexOf(".") + 1;
-    var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+    var extFile = fileName.substring(idxDot, fileName.length).toLowerCase();
     if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
         document.getElementById("pictureError").style.display = "unset";
         document.getElementById("pictureError").style.color = "rgb(15, 203, 15)";
