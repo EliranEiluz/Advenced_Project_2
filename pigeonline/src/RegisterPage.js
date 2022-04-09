@@ -7,7 +7,7 @@ function RegisterPage({UsersArray, nowOnline}) {
   const [userValues, setUserValues] = useState({username:'', password:'', validatePass:'',displayName:'', picture:''});
   var navigate = useNavigate();
   const [isValidValues] = useState({validUserName:false, validPassword:false, validPassword2:false, validDisplayName:false, 
-  validPicture:false});
+  validPicture:true});
 
   function validateForm() {
     return isValidValues.validUserName && isValidValues.validPassword && isValidValues.validPassword2 &&
@@ -79,10 +79,10 @@ function RegisterPage({UsersArray, nowOnline}) {
   }
 
   function validatePicture() {
-    var fileName = userValues.picture ;
+    var fileName = userValues.picture;
     var idxDot = fileName.lastIndexOf(".") + 1;
     var extFile = fileName.substring(idxDot, fileName.length).toLowerCase();
-    if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+    if (extFile=="jpg" || extFile=="jpeg" || extFile=="png" || userValues.picture == ""){
         document.getElementById("pictureError").style.display = "unset";
         document.getElementById("pictureError").style.color = "rgb(15, 203, 15)";
         document.getElementById("pictureError").innerHTML = "Valid !"
@@ -161,6 +161,9 @@ function RegisterPage({UsersArray, nowOnline}) {
   }
 
   function handleSubmit(event) {
+    if(userValues.picture == "") {
+      userValues.picture = "defaultpic.png";
+    }
     nowOnline.onlineUser = new User(userValues.username, userValues.password, userValues.displayName, userValues.picture);
     UsersArray.push(nowOnline.onlineUser);
     event.preventDefault();

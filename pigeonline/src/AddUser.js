@@ -21,6 +21,7 @@ const toAdd = useState({newUser : '', objectUser : null});
       toAdd.objectUser = UsersArray.find((e) => e.username == toAdd.newUser);
       if(!nowOnline.onlineUser.chats.find((e) => e.username == toAdd.objectUser.username)) { // need change to userName instead displayName.
         nowOnline.onlineUser.chats.push(new Chat(toAdd.objectUser.username, toAdd.objectUser.displayName, toAdd.objectUser.image, "", ""))
+        toAdd.objectUser.chats.push(new Chat(nowOnline.onlineUser.username, nowOnline.onlineUser.displayName, "", ""))
         setChats(
           nowOnline.onlineUser.chats.map((chat, key) => {
             console.log(chat.displayName);

@@ -24,7 +24,7 @@ function UserSideBox({image,displayname,date,lastMessage,username, setMessages, 
               <div className="chat_img">
                 {" "}
                 <img
-                  src="https://ptetutorials.com/images/user-profile.png"
+                  src={image}
                   alt="sunil"
                 />{" "}
               </div>

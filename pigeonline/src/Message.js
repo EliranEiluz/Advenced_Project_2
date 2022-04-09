@@ -1,8 +1,8 @@
 import './SampleChat.css';
 
-function Message({senderUserName, content, nowOnline, type,  date}) { // delete sendTo, chande object sender to string.
+function Message({senderUserName, content, nowOnline, type,  date ,senderPicture}) { // delete sendTo, chande object sender to string.
     
-console.log(senderUserName + "  ?  " + nowOnline.onlineUser.username)
+
 
     if(senderUserName == nowOnline.onlineUser.username) {
         return (
@@ -20,8 +20,8 @@ console.log(senderUserName + "  ?  " + nowOnline.onlineUser.username)
             <div className="incoming_msg_img">
             {" "}
             <img
-                src="https://ptetutorials.com/images/user-profile.png"
-                alt="sunil"
+                src={senderPicture}
+                alt="sender-picture"
             />{" "}
             </div>
             <div className="received_msg">

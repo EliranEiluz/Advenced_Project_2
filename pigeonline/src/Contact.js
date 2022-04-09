@@ -13,7 +13,7 @@ function Contact({nowOnline, UsersArray})  {
   const currentChat = nowOnline.onlineUser.chats.find((e) => e.username == contactUserName)
   // all the messages with the contact.
   const [chatMessages, setChatMessages] = useState(currentChat.messages.map((message, key) => {
-    return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} key={key}/>}));
+    return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} senderPicture={message.senderPicture} key={key}/>}));
 
   const [chats, setChats] = useState(nowOnline.onlineUser.chats.map((chat, key) => {
     return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} setMessages={setChatMessages} setContact={setContactUserName} nowOnline={nowOnline} key={key}/>}));

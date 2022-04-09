@@ -16,16 +16,18 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
   function newTextMessage() {
     const date = dateNow()
     console.log(input)
-    const newMessage = new MessageClass(nowOnline.onlineUser.username, input, "text",date)
+    const newMessage = new MessageClass(nowOnline.onlineUser.username, input, "text",date, nowOnline.onlineUser.picture)
     const currentUserChat = nowOnline.onlineUser.chats.find((e) => e.username == contactUserName);
-    //const otherUserChat = contactObject.chats.find((e) => e.username == nowOnline.onlineUser.username);
     currentUserChat.messages.push(newMessage);
     currentUserChat.lastMessage = input;
     currentUserChat.date = date;
-    //otherUserChat.messages.push(newMessage);
-    //otherUserChat.lastMessage = newMessage;
+    if(contactObject) {
+      const otherUserChat = contactObject.chats.find((e) => e.username == nowOnline.onlineUser.username);
+      otherUserChat.messages.push(newMessage);
+      otherUserChat.lastMessage = newMessage;
+    }
     setChatMessages(currentUserChat.messages.map((message, key) => {
-      return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} key={key}/>}));
+      return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} senderPicture={message.senderPicture} key={key}/>}));
     setChats(nowOnline.onlineUser.chats.map((chat, key) => {
       return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} setMessages={setChatMessages} setContact={setContactUserName} nowOnline={nowOnline} key={key}/>}));
   }
