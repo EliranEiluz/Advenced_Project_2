@@ -98,7 +98,7 @@ function DropUp({newPictureMessage, newVideoMessage}) {
       .catch(function (err) {
         console.log(err.name, err.message);
       });
-      
+
     return(
         <>
         <div className='col-xl-1 col-sm-1 col-xs-1 col' id='dropUpCol'>
@@ -163,7 +163,9 @@ function DropUp({newPictureMessage, newVideoMessage}) {
             <button id="btnStop">STOP RECORDING</button>
           </p>
          
-          <audio id="audioPlay" controls></audio>
+            <audio controls></audio>
+
+            <audio id="audioPlay" controls></audio>
 
           </div>
           <div className="modal-footer">
