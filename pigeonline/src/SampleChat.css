@@ -198,3 +198,22 @@ img{ max-width:100%;}
 .videoWrapper {
   max-width: 380px;
 }
+
+audio#recordPlay::-webkit-media-controls-play-button {
+  display: none;
+}
+audio#adioPlay::-webkit-media-controls-play-button{
+  display: unset;
+}
+
+#btnStop {
+  border: none;
+  background-color: transparent;
+  width: 60px;
+}
+#btnStart {
+  border: none;
+  background-color: transparent;
+  color: red;
+  width: 60px;
+}
