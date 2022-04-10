@@ -2,7 +2,7 @@ import './ChatPage.css';
 import './SampleChat.css'
 
 
-function DropUp({newPictureMessage}) {
+function DropUp({newPictureMessage, newVideoMessage}) {
     return(
         
         <div className='col-xl-1 col-sm-1 col-xs-1 col' id='dropUpCol'>
@@ -15,25 +15,25 @@ function DropUp({newPictureMessage}) {
                 <ul className="dropdown-menu">
                     <li className='li'>
                         <div className="img-upload dropdown-item">
-                            <label htmlFor="file-input">
+                            <label htmlFor="image-input">
                                 <svg id="iconImg" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-card-image" viewBox="0 0 16 16">
                                     <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
                                     <path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54A.505.505 0 0 1 1 12.5v-9a.5.5 0 0 1 .5-.5h13z" />
                                 </svg>
                             </label>
-                            <input id="file-input" type="file" onChange={newPictureMessage}/>
+                            <input id="image-input" type="file" onChange={newPictureMessage}/>
                         </div>
                     </li>
                     <li><hr className="dropdown-divider"></hr></li>
 
                     <li>
                         <div className="vid-upload dropdown-item">
-                            <label htmlFor="file-input">
+                            <label htmlFor="video-input">
                                 <svg id="iconVid" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-camera-video-fill" viewBox="0 0 16 16">
                                     <path fillRule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5z" />
                                 </svg>
                             </label>
-                            <input id="file-input" type="file" />
+                            <input id="video-input" type="file" onChange={newVideoMessage}/>
                         </div>
                     </li>
                     <li><hr className="dropdown-divider"></hr></li>

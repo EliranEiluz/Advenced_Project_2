@@ -108,7 +108,6 @@ img{ max-width:100%;}
 .sent_msg {
   float: right;
   width: 46%;
-  
   margin-right: 10px;
 }
 .input_msg_write input {
@@ -194,4 +193,8 @@ img{ max-width:100%;}
 .li_user:hover {
   background-color: rgb(104, 111, 193);
   color: white
+}
+
+.videoWrapper {
+  max-width: 385px;
 }

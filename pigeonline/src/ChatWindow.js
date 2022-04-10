@@ -8,7 +8,6 @@ import UserSideBox from './UserSideBox';
 
 function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersArray, setChatMessages, setContactUserName}) {
   const [textInput, setTextInput] = useState('');
-  const [videoInput, setVideoInput] = useState('');
   const [recordInput, setRecordInput] = useState('');
   const contactObject = UsersArray.find((e) => e.username == contactUserName)
   const currentUserChat = nowOnline.onlineUser.chats.find((e) => e.username == contactUserName);
@@ -32,8 +31,10 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
 
   function newPictureMessage(e) {
     //setImageInput(e.target.value)
-    const image = e.target.value;
-    console.log(image)
+    const image = document.getElementById("image-input").files[0].name;
+    if(image == "") {
+      return;
+    }
     var fileName = image;
     var idxDot = fileName.lastIndexOf(".") + 1;
     var extFile = fileName.substring(idxDot, fileName.length).toLowerCase();
@@ -46,6 +47,25 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
        alert('invalid')
     }   
   }
+
+  function newVideoMessage() {
+    const video = document.getElementById("video-input").files[0].name;
+    if(video == "") {
+      return;
+    }
+    var fileName = video;
+    var idxDot = fileName.lastIndexOf(".") + 1;
+    var extFile = fileName.substring(idxDot, fileName.length).toLowerCase();
+    if (extFile=="mp4") {
+      const date = dateNow()
+      const newMessage = new MessageClass(nowOnline.onlineUser.username, video, "video", date, nowOnline.onlineUser.picture)
+      currentUserChat.lastMessage = "video";
+      afterMessage(newMessage, date);
+    }else{
+       alert('invalid')
+    }   
+  }
+  
 
   function afterMessage(newMessage, date) {
     currentUserChat.messages.push(newMessage);
@@ -88,7 +108,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
             </button>
             </div>
 
-            <DropUp newPictureMessage={newPictureMessage}/>
+            <DropUp newPictureMessage={newPictureMessage} newVideoMessage={newVideoMessage}/>
 
             <div className='col-xl-10 col-sm-10 col-xs-10 col' id='inputRow'>
         <input type="text" className="form-control" id="messageText" placeholder="New message here..." onChange={handleChange}></input>
