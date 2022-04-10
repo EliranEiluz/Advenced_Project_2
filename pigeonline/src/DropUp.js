@@ -3,6 +3,8 @@ import './SampleChat.css'
 
 
 function DropUp({newPictureMessage, newVideoMessage}) {
+
+  function startRecord() {
     let audioIN = { audio: true };
     //  audio is true, for recording
  
@@ -98,7 +100,7 @@ function DropUp({newPictureMessage, newVideoMessage}) {
       .catch(function (err) {
         console.log(err.name, err.message);
       });
-      
+    }
     return(
         <>
         <div className='col-xl-1 col-sm-1 col-xs-1 col' id='dropUpCol'>
@@ -158,7 +160,7 @@ function DropUp({newPictureMessage, newVideoMessage}) {
           <div className="modal-body">
 
           <p>
-            <button id="btnStart">START RECORDING</button>
+            <button id="btnStart" onClick={startRecord}>START RECORDING</button>
                   &nbsp;&nbsp;&nbsp;&nbsp;
             <button id="btnStop">STOP RECORDING</button>
           </p>
