@@ -41,9 +41,9 @@ class Chat {
 }
 
 
-const UsersArray = [new User('wow','wowwowwow','wow','im4.jpeg')];
-UsersArray[0].chats.push(new Chat('ben','Ben', 'im4.png', 'Hello World !', "March 25"),
-new Chat('eliran', 'Eliran','im4.png', 'Hey eliran !', "March 25"))
+const UsersArray = [new User('wow','wowwowwow','wow','defaultpic.png')];
+UsersArray[0].chats.push(new Chat('ben','Ben', 'defaultpic.png', 'Hello World !', "March 25"),
+new Chat('eliran', 'Eliran','defaultpic.png', 'Hey eliran !', "March 25"))
 
 UsersArray[0].chats[0].messages.push(new MessageClass("wow", "Hello ben from wow", "text", "7/4", 'defaultpic.png'))
 UsersArray[0].chats[0].messages.push(new MessageClass("ben", "Hello wow from ben.", "text", "7/4", 'defaultpic.png'))
