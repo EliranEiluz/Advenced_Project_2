@@ -14,6 +14,14 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
   }
 
   function newTextMessage() {
+    // don't send empty message.
+    if (document.getElementById("messageText").value == "") {
+      return;
+    }
+    // clean the message line.
+    document.getElementById("messageText").value = "";
+
+
     const date = dateNow()
     const newMessage = new MessageClass(nowOnline.onlineUser.username, input, "text",date, nowOnline.onlineUser.picture)
     const currentUserChat = nowOnline.onlineUser.chats.find((e) => e.username == contactUserName);
