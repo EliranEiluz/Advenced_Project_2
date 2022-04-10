@@ -12,6 +12,9 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
   const contactObject = UsersArray.find((e) => e.username == contactUserName)
   const currentUserChat = nowOnline.onlineUser.chats.find((e) => e.username == contactUserName);
 
+  const [lastRecord, setLastRecord] = useState('');
+
+
   function handleChange(e) {
     setTextInput(e.target.value)
   }
@@ -67,6 +70,131 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
   }
   
 
+
+  function startRecord() {
+    document.getElementById('recordPlay').src = null;
+
+    let audioIN = { audio: true };
+    //  audio is true, for recording
+ 
+    // Access the permission for use
+    // the microphone
+    navigator.mediaDevices.getUserMedia(audioIN)
+ 
+      // 'then()' method returns a Promise
+      .then(function (mediaStreamObj) {
+ 
+        // Connect the media stream to the
+        // first audio element
+        let audio = document.querySelector('audio');
+        //returns the recorded audio via 'audio' tag
+ 
+        // 'srcObject' is a property which
+        // takes the media object
+        // This is supported in the newer browsers
+        if ("srcObject" in audio) {
+          audio.srcObject = mediaStreamObj;
+        }
+        else {   // Old version
+          audio.src = window.URL
+            .createObjectURL(mediaStreamObj);
+        }
+ 
+        // It will play the audio
+        audio.onloadedmetadata = function (ev) {
+ 
+          // Play the audio in the 2nd audio
+          // element what is being recorded
+          audio.play();
+        };
+ 
+        // Start record
+        let start = document.getElementById('btnStart');
+ 
+        // Stop record
+        let stop = document.getElementById('btnStop');
+ 
+        // 2nd audio tag for play the audio
+        let playAudio = document.getElementById('adioPlay');
+ 
+        // This is the main thing to recorded
+        // the audio 'MediaRecorder' API
+        let mediaRecorder = new MediaRecorder(mediaStreamObj);
+        // Pass the audio stream
+ 
+        // Start event
+        start.addEventListener('click', function (ev) {
+          mediaRecorder.start();
+          // console.log(mediaRecorder.state);
+        })
+ 
+        // Stop event
+        stop.addEventListener('click', function (ev) {
+          mediaRecorder.stop();
+          // console.log(mediaRecorder.state);
+          audio.pause();
+          audio.stop();
+        });
+ 
+        // If audio data available then push
+        // it to the chunk array
+        mediaRecorder.ondataavailable = function (ev) {
+          dataArray.push(ev.data);
+        }
+ 
+        // Chunk array to store the audio data
+        let dataArray = [];
+ 
+        // Convert the audio data in to blob
+        // after stopping the recording
+        mediaRecorder.onstop = function (ev) {
+          // blob of type mp3
+          let audioData = new Blob(dataArray,
+                    { 'type': 'audio/mp3;' });
+           
+          // After fill up the chunk
+          // array make it empty
+          dataArray = [];
+ 
+          // Creating audio url with reference
+          // of created blob named 'audioData'
+          let audioSrc = window.URL
+              .createObjectURL(audioData);
+ 
+          // Pass the audio url to the 2nd video tag
+          playAudio.src = audioSrc;
+
+          audioIN[audio] = false;
+          setLastRecord(playAudio.src);
+        }
+        
+      })
+ 
+      // If any error occurs then handles the error
+      .catch(function (err) {
+        console.log(err.name, err.message);
+      });
+    }
+
+    function newRecordMessage() {
+    if(lastRecord == "") {
+      console.log("no src")
+      return;
+    }
+    console.log(lastRecord)
+      const date = dateNow()
+      const newMessage = new MessageClass(nowOnline.onlineUser.username, lastRecord, "audio", date, nowOnline.onlineUser.picture)
+      currentUserChat.lastMessage = "audio";
+      afterMessage(newMessage, date);
+      document.getElementById('adioPlay').src = null;
+      setLastRecord("");
+
+      //document.getElementById('recordPlay').src = null;
+      //document.getElementById('recordPlay').currentTime = 0;
+      //document.getElementById('recordPlay').pause();
+
+    }
+
   function afterMessage(newMessage, date) {
     currentUserChat.messages.push(newMessage);
     currentUserChat.date = date;
@@ -107,7 +235,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
             </button>
             </div>
 
-            <DropUp newPictureMessage={newPictureMessage} newVideoMessage={newVideoMessage}/>
+            <DropUp newPictureMessage={newPictureMessage} newVideoMessage={newVideoMessage} startRecord={startRecord} newRecordMessage={newRecordMessage}/>
 
             <div className='col-xl-10 col-sm-10 col-xs-10 col' id='inputRow'>
         <input type="text" className="form-control" id="messageText" placeholder="New message here..." onChange={handleChange}></input>
