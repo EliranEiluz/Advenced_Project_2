@@ -81,7 +81,6 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
       return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} setMessages={setChatMessages} setContact={setContactUserName} nowOnline={nowOnline} key={key}/>}));
   }
 
-  
   // find the chat with the contact we push on his chat.
 
     // use this function only you send new message (input).
