@@ -7,10 +7,14 @@ import Message from './Message';
 import UserSideBox from './UserSideBox';
 
 function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersArray, setChatMessages, setContactUserName}) {
-  const [input,setInput] = useState('');
+  const [textInput, setTextInput] = useState('');
+  const [videoInput, setVideoInput] = useState('');
+  const [recordInput, setRecordInput] = useState('');
   const contactObject = UsersArray.find((e) => e.username == contactUserName)
+  const currentUserChat = nowOnline.onlineUser.chats.find((e) => e.username == contactUserName);
+
   function handleChange(e) {
-    setInput(e.target.value)
+    setTextInput(e.target.value)
   }
 
   function newTextMessage() {
@@ -20,16 +24,31 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
     }
     // clean the message line.
     document.getElementById("messageText").value = "";
-
-
     const date = dateNow()
-    const newMessage = new MessageClass(nowOnline.onlineUser.username, input, "text",date, nowOnline.onlineUser.picture)
-    const currentUserChat = nowOnline.onlineUser.chats.find((e) => e.username == contactUserName);
-  function afterMessage(newMessage) {
-
+    const newMessage = new MessageClass(nowOnline.onlineUser.username, textInput, "text",date, nowOnline.onlineUser.picture)
+    currentUserChat.lastMessage = textInput;
+    afterMessage(newMessage, date);
   }
+
+  function newPictureMessage(e) {
+    //setImageInput(e.target.value)
+    const image = e.target.value;
+    console.log(image)
+    var fileName = image;
+    var idxDot = fileName.lastIndexOf(".") + 1;
+    var extFile = fileName.substring(idxDot, fileName.length).toLowerCase();
+    if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+      const date = dateNow()
+      const newMessage = new MessageClass(nowOnline.onlineUser.username, image, "image", date, nowOnline.onlineUser.picture)
+      currentUserChat.lastMessage = "image";
+      afterMessage(newMessage, date);
+    }else{
+       alert('invalid')
+    }   
+  }
+
+  function afterMessage(newMessage, date) {
     currentUserChat.messages.push(newMessage);
-    currentUserChat.lastMessage = input;
     currentUserChat.date = date;
     if(contactObject) {
       const otherUserChat = contactObject.chats.find((e) => e.username == nowOnline.onlineUser.username);
@@ -41,6 +60,8 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
     setChats(nowOnline.onlineUser.chats.map((chat, key) => {
       return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} setMessages={setChatMessages} setContact={setContactUserName} nowOnline={nowOnline} key={key}/>}));
   }
+
+  
   // find the chat with the contact we push on his chat.
 
     // use this function only you send new message (input).
@@ -67,7 +88,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
             </button>
             </div>
 
-            <DropUp />
+            <DropUp newPictureMessage={newPictureMessage}/>
 
             <div className='col-xl-10 col-sm-10 col-xs-10 col' id='inputRow'>
         <input type="text" className="form-control" id="messageText" placeholder="New message here..." onChange={handleChange}></input>
