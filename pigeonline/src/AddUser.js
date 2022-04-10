@@ -79,10 +79,10 @@ const toAdd = useState({newUser : '', objectUser : null});
             <button type="button" className="btn-close" data-bs-dismiss="modal" onClick={handleCloseClick} aria-label="Close"></button>
           </div>
           <div className="modal-body">
-            <div class="alert alert-danger alert-dismissible fade show" id="notFound" role="alert">
+            <div className="alert alert-danger alert-dismissible fade show" id="notFound" role="alert">
               <strong>The user not found.</strong>
             </div>
-            <div class="alert alert-danger alert-dismissible fade show" id="addYourself" role="alert">
+            <div className="alert alert-danger alert-dismissible fade show" id="addYourself" role="alert">
               <strong>You can't chat with yourself.</strong>
             </div>
           <input type="text" id="contentMessage" className="form-control" placeholder="Contact's identifier" onChange={handleChange}></input>

@@ -44,7 +44,7 @@ function LoginPage({UsersArray, nowOnline}) {
                     </div>
                     <div className="alert alert-danger alert-dismissable fade show" role="alert" id="wrongInput">
                       Wrong username or password. Please try again, or <Link to='/register'>click here</Link> if you are not registered.
-                      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="close-alert-btn"></button>
+                      <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close" id="close-alert-btn"></button>
                     </div>
                     <div className="mb-3 row">
                         <label className="col-sm-6 col-lg-2">Username</label>

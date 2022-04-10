@@ -15,9 +15,11 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
 
   function newTextMessage() {
     const date = dateNow()
-    console.log(input)
     const newMessage = new MessageClass(nowOnline.onlineUser.username, input, "text",date, nowOnline.onlineUser.picture)
     const currentUserChat = nowOnline.onlineUser.chats.find((e) => e.username == contactUserName);
+  function afterMessage(newMessage) {
+
+  }
     currentUserChat.messages.push(newMessage);
     currentUserChat.lastMessage = input;
     currentUserChat.date = date;
