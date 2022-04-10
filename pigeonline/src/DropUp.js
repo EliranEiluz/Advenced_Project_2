@@ -4,7 +4,7 @@ import './SampleChat.css'
 
 function DropUp({newPictureMessage, newVideoMessage}) {
     return(
-        
+        <>
         <div className='col-xl-1 col-sm-1 col-xs-1 col' id='dropUpCol'>
             <div className="btn-group dropup" id='dropUpMenu'>
                 <button type="button" id="dropdownMenu2" data-bs-toggle="dropdown">
@@ -39,7 +39,7 @@ function DropUp({newPictureMessage, newVideoMessage}) {
                     <li><hr className="dropdown-divider"></hr></li>
 
                     {/*change last li to lable+input*/}
-                    <li><button className="dropdown-item">
+                    <li><button className="dropdown-item" data-bs-toggle="modal" data-bs-target="#contactModal">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-volume-up-fill" viewBox="0 0 16 16">
                             <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z" />
                             <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z" />
@@ -49,6 +49,30 @@ function DropUp({newPictureMessage, newVideoMessage}) {
                 </ul>
             </div>
         </div>
+        <div className="modal fade" id="contactModal" tabIndex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title" id="ModalLabel">Add new contact</h5>
+            
+            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div className="modal-body">
+            <div className="alert alert-danger alert-dismissible fade show" id="notFound" role="alert">
+              <strong>The user not found.</strong>
+            </div>
+            <div className="alert alert-danger alert-dismissible fade show" id="addYourself" role="alert">
+              <strong>You can't chat with yourself.</strong>
+            </div>
+          <input type="text" id="contentMessage" className="form-control" placeholder="Contact's identifier"></input>
+          </div>
+          <div className="modal-footer">
+            <button type="button" id="addBtn" className="btn btn-primary">Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </>
           
     )
 }
