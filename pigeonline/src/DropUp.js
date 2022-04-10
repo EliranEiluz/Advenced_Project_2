@@ -165,7 +165,9 @@ function DropUp({newPictureMessage, newVideoMessage}) {
             <button id="btnStop">STOP RECORDING</button>
           </p>
          
-          <audio id="audioPlay" controls></audio>
+            <audio controls></audio>
+
+            <audio id="audioPlay" controls></audio>
 
           </div>
           <div className="modal-footer">
