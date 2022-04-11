@@ -31,17 +31,18 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
   }
 
   function newPictureMessage(e) {
-    //setImageInput(e.target.value)
     const image = document.getElementById("image-input").files[0].name;
     if(image === "") {
       return;
     }
+    const pathImg = URL.createObjectURL(document.getElementById("image-input").files[0])
+
     var fileName = image;
     var idxDot = fileName.lastIndexOf(".") + 1;
     var extFile = fileName.substring(idxDot, fileName.length).toLowerCase();
     if (extFile === "jpg" || extFile === "jpeg" || extFile === "png"){
       const date = dateNow()
-      const newMessage = new MessageClass(nowOnline.onlineUser.username, image, "image", date, nowOnline.onlineUser.picture)
+      const newMessage = new MessageClass(nowOnline.onlineUser.username, pathImg, "image", date, nowOnline.onlineUser.picture)
       currentUserChat.lastMessage = "image";
       afterMessage(newMessage, "image", date);
       document.getElementById("image-input").value = "";
@@ -55,12 +56,14 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
     if(video === "") {
       return;
     }
+    const pathVid = URL.createObjectURL(document.getElementById("video-input").files[0])
+
     var fileName = video;
     var idxDot = fileName.lastIndexOf(".") + 1;
     var extFile = fileName.substring(idxDot, fileName.length).toLowerCase();
     if (extFile === "mp4") {
       const date = dateNow()
-      const newMessage = new MessageClass(nowOnline.onlineUser.username, video, "video", date, nowOnline.onlineUser.picture)
+      const newMessage = new MessageClass(nowOnline.onlineUser.username, pathVid, "video", date, nowOnline.onlineUser.picture)
       currentUserChat.lastMessage = "video";
       afterMessage(newMessage, "video",date);
       document.getElementById("video-input").value = "";
