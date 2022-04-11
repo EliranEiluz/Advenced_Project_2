@@ -5,8 +5,7 @@ import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
 import ChatPage from './ChatPage';
 import Contact from './Contact';
-
-import {BrowserRouter,Routes, Route } from 'react-router-dom';
+import { BrowserRouter,Routes, Route } from 'react-router-dom';
 
 
 class User {

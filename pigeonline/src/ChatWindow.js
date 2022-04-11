@@ -8,10 +8,8 @@ import UserSideBox from './UserSideBox';
 
 function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersArray, setChatMessages, setContactUserName}) {
   const [textInput, setTextInput] = useState('');
-  const [recordInput, setRecordInput] = useState('');
   const contactObject = UsersArray.find((e) => e.username == contactUserName)
   const currentUserChat = nowOnline.onlineUser.chats.find((e) => e.username == contactUserName);
-
   const [lastRecord, setLastRecord] = useState('');
 
 
@@ -83,10 +81,10 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
  
       // 'then()' method returns a Promise
       .then(function (mediaStreamObj) {
- 
+        
         // Connect the media stream to the
         // first audio element
-        let audio = document.querySelector('audio');
+        let audio = document.getElementById('recordPlay');
         //returns the recorded audio via 'audio' tag
  
         // 'srcObject' is a property which
@@ -105,7 +103,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
  
           // Play the audio in the 2nd audio
           // element what is being recorded
-          audio.play();
+          
         };
  
         // Start record
@@ -124,6 +122,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
  
         // Start event
         start.addEventListener('click', function (ev) {
+          audio.play();
           mediaRecorder.start();
           // console.log(mediaRecorder.state);
         })
@@ -167,7 +166,6 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
           audioIN[audio] = false;
           setLastRecord(playAudio.src);
         }
-        
       })
  
       // If any error occurs then handles the error
