@@ -67,6 +67,10 @@ img{ max-width:100%;}
   display: inline-block;
   width: 6%;
 }
+
+.incoming_msg {
+  margin:15px 0 15px;
+}
 .received_msg {
   display: inline-block;
   padding: 0 0 0 10px;
@@ -86,7 +90,7 @@ img{ max-width:100%;}
   color: white;
   display: block;
   font-size: 12px;
-  margin: 8px 0 8px;
+  margin: 0px 0 0px;
 }
 .received_withd_msg { width: 57%;}
 .mesgs {
@@ -103,7 +107,7 @@ img{ max-width:100%;}
   padding: 5px 10px 5px 12px;
   width:100%;
 }
-.outgoing_msg{  margin:26px 0 26px;}
+.outgoing_msg{ overflow: hidden; margin:15px 0 15px;}
 .sent_msg {
   float: right;
   width: 46%;

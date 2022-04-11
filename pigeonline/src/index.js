@@ -6,6 +6,7 @@ import RegisterPage from './RegisterPage';
 import ChatPage from './ChatPage';
 import Contact from './Contact';
 import { BrowserRouter,Routes, Route } from 'react-router-dom';
+import Message from './Message';
 
 
 class User {
@@ -40,13 +41,19 @@ class Chat {
 }
 
 
-const UsersArray = [new User('wow','wowwowwow','wow','defaultpic.png'), new User('john','wowwowwow','john','defaultpic.png')];
-UsersArray[0].chats.push(new Chat('ben','Ben', 'defaultpic.png', 'Hello World !', "March 25"),
-new Chat('eliran', 'Eliran','defaultpic.png', 'Hey eliran !', "March 25"))
-
-UsersArray[0].chats[0].messages.push(new MessageClass("wow", "Hello ben from wow", "text", "7/4", 'defaultpic.png'))
-UsersArray[0].chats[0].messages.push(new MessageClass("ben", "Hello wow from ben.", "text", "7/4", 'defaultpic.png'))
-UsersArray[0].chats[1].messages.push(new MessageClass("eliran", "Hello wow from eliran.", "text", "7/4" , 'defaultpic.png'))
+const UsersArray = [new User('Bar','Aa123456','Bar',"woman.jpg"), new User('Foo','Aa123456','Foo','defaultpic.png')];
+UsersArray[0].chats.push(new Chat('Foo', 'Foo', "defaultpic.png", 'Bye!', '17:53 | 18/6/2018'))
+UsersArray[1].chats.push(new Chat('Bar', 'Bar', "woman.jpg", 'Bye!', '17:53 | 18/6/2018'))
+UsersArray[0].chats[0].messages.push(new MessageClass('Foo', "Hey Bar!", 'text', '17:51 | 18/6/2018', "defaultpic.png"))
+UsersArray[1].chats[0].messages.push(new MessageClass('Foo', "Hey Bar!", 'text', '17:51 | 18/6/2018', "defaultpic.png"))
+UsersArray[1].chats[0].messages.push(new MessageClass('Bar', "Hey Foo!", 'text', '17:51 | 18/6/2018', "woman.jpg"))
+UsersArray[0].chats[0].messages.push(new MessageClass('Bar', "Hey Foo!", 'text', '17:51 | 18/6/2018', "woman.jpg"))
+UsersArray[1].chats[0].messages.push(new MessageClass('Bar', 'send.png', 'image', '17:52 | 18/6/2018', "woman.jpg"))
+UsersArray[0].chats[0].messages.push(new MessageClass('Bar', 'send.png', 'image', '17:52 | 18/6/2018', "woman.jpg"))
+UsersArray[1].chats[0].messages.push(new MessageClass('Foo', 'video.mp4', 'video', '17:53 | 18/6/2018', "defaultpic.png"))
+UsersArray[0].chats[0].messages.push(new MessageClass('Foo', 'video.mp4', 'video', '17:53 | 18/6/2018', "defaultpic.png"))
+UsersArray[0].chats[0].messages.push(new MessageClass('Foo', "Bye!", 'text', '17:53 | 18/6/2018', "defaultpic.png"))
+UsersArray[1].chats[0].messages.push(new MessageClass('Foo', "Bye!", 'text', '17:53 | 18/6/2018', "defaultpic.png"))
 
 const nowOnline = {onlineUser:null};
 
