@@ -86,7 +86,7 @@ img{ max-width:100%;}
   color: white;
   display: block;
   font-size: 12px;
-  margin: 8px 0 0;
+  margin: 8px 0 8px;
 }
 .received_withd_msg { width: 57%;}
 .mesgs {
@@ -103,11 +103,12 @@ img{ max-width:100%;}
   padding: 5px 10px 5px 12px;
   width:100%;
 }
-.outgoing_msg{ overflow:hidden; margin:26px 0 26px;}
+.outgoing_msg{  margin:26px 0 26px;}
 .sent_msg {
   float: right;
   width: 46%;
   margin-right: 10px;
+  clear:both;
 }
 .input_msg_write input {
   font-size: 15px;
@@ -120,10 +121,10 @@ img{ max-width:100%;}
   width: 90%;
   float:right;
   bottom: 0;
-    width: 100%;
-    margin: 0%;
-    padding: 0%;
-    float:right;
+  width: 100%;
+  margin: 0%;
+  padding: 0%;
+  float:right;
 }
 .msg_send_btn {
   float: left;
@@ -145,7 +146,8 @@ img{ max-width:100%;}
 }
 .msg_history {
   height: 516px;
-  overflow-y: auto;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
 }
 
 #inputRow {
@@ -194,8 +196,8 @@ img{ max-width:100%;}
   color: white
 }
 
-.videoWrapper {
-  max-width: 380px;
+.Wrapper {
+  max-width: 100%;
 }
 
 audio#recordPlay::-webkit-media-controls-play-button {

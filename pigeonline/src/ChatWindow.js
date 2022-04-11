@@ -130,10 +130,10 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
  
         // Stop event
         stop.addEventListener('click', function (ev) {
-          mediaRecorder.stop();
+          if(mediaRecorder.state != "inactive")
+            mediaRecorder.stop();
           // console.log(mediaRecorder.state);
-          audio.pause();
-          audio.stop();
+            audio.pause();
         });
  
         // If audio data available then push
