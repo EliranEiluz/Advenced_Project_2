@@ -17,6 +17,9 @@ const toAdd = useState({newUser : '', objectUser : null});
       if(document.getElementById("notFound")) {
         document.getElementById("notFound").style.display = "none";
       }
+      if(document.getElementById("sucsessAdd")) {
+        document.getElementById("sucsessAdd").style.display = "none";
+      }
     }
     else if(!UsersArray.find((e) => e.username == toAdd.newUser)) {
       if(document.getElementById("addYourself")) {
@@ -25,15 +28,20 @@ const toAdd = useState({newUser : '', objectUser : null});
       if(document.getElementById("notFound")) {
         document.getElementById("notFound").style.display = "block";
       }
+      if(document.getElementById("sucsessAdd")) {
+        document.getElementById("sucsessAdd").style.display = "none";
+      }
     }
     else {
+      if(document.getElementById("sucsessAdd")) {
+        document.getElementById("sucsessAdd").style.display = "block";
+      }
       if(document.getElementById("addYourself")) {
         document.getElementById("addYourself").style.display = "none";
       }
       if(document.getElementById("notFound")) {
         document.getElementById("notFound").style.display = "none";
       }
-      document.getElementById("addBtn").modal("hide");
       toAdd.objectUser = UsersArray.find((e) => e.username == toAdd.newUser);
       if(!nowOnline.onlineUser.chats.find((e) => e.username == toAdd.objectUser.username)) { // need change to userName instead displayName.
         nowOnline.onlineUser.chats.push(new Chat(toAdd.objectUser.username, toAdd.objectUser.displayName, toAdd.objectUser.image, "", ""))
@@ -84,6 +92,9 @@ const toAdd = useState({newUser : '', objectUser : null});
             </div>
             <div className="alert alert-danger alert-dismissible fade show" id="addYourself" role="alert">
               <strong>You can't chat with yourself.</strong>
+            </div>
+            <div className="alert alert-success alert-dismissible fade show" id="sucsessAdd" role="alert">
+              <strong>User added succefully.</strong>
             </div>
           <input type="text" id="contentMessage" className="form-control" placeholder="Contact's identifier" onChange={handleChange}></input>
           </div>

@@ -181,6 +181,10 @@ button.user:hover {
     text-align: left;
 }
 
+#sucsessAdd {
+    display: none;
+}
+
 .exitBut {
     float: left;
     width: 40px;
