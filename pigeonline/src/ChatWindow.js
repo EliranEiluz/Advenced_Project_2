@@ -43,7 +43,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
     var extFile = fileName.substring(idxDot, fileName.length).toLowerCase();
     if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
       const date = dateNow()
-      const newMessage = new MessageClass(nowOnline.onlineUser.username, image, "image", date, nowOnline.onlineUser.picture)
+      const newMessage = new MessageClass(nowOnline.onlineUser.username, image, "Image", date, nowOnline.onlineUser.picture)
       currentUserChat.lastMessage = "image";
       afterMessage(newMessage, date);
     }else{
