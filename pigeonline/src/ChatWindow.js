@@ -122,6 +122,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
  
         // Start event
         start.addEventListener('click', function (ev) {
+          audio.src = null;
           audio.play();
           mediaRecorder.start();
           // console.log(mediaRecorder.state);
@@ -172,6 +173,10 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
       .catch(function (err) {
         console.log(err.name, err.message);
       });
+    }
+
+    function resetRecord() {
+      document.getElementById('adioPlay').src = null;
     }
 
     function newRecordMessage() {
@@ -247,7 +252,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
             </button>
             </div>
 
-            <DropUp newPictureMessage={newPictureMessage} newVideoMessage={newVideoMessage} startRecord={startRecord} newRecordMessage={newRecordMessage}/>
+            <DropUp newPictureMessage={newPictureMessage} newVideoMessage={newVideoMessage} startRecord={startRecord} newRecordMessage={newRecordMessage} resetRecord={resetRecord}/>
 
             <div className='col-xl-10 col-sm-10 col-xs-10 col' id='inputRow'>
         <input type="text" className="form-control" id="messageText" placeholder="New message here..." onChange={handleChange}></input>

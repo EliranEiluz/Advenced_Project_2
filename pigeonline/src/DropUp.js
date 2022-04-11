@@ -2,7 +2,7 @@ import './ChatPage.css';
 import './SampleChat.css'
 
 
-function DropUp({newPictureMessage, newVideoMessage, startRecord, newRecordMessage}) {
+function DropUp({newPictureMessage, newVideoMessage, startRecord, newRecordMessage, resetRecord}) {
 
     return(
         <>
@@ -58,7 +58,7 @@ function DropUp({newPictureMessage, newVideoMessage, startRecord, newRecordMessa
           <div className="modal-header">
             <h5 className="modal-title" id="ModalLabel">Record</h5>
             
-            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={resetRecord}></button>
           </div>
           <div className="modal-body">
 
