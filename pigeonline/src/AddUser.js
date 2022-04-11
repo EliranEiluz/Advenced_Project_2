@@ -62,6 +62,9 @@ const toAdd = useState({newUser : '', objectUser : null});
     if(document.getElementById("notFound")) {
       document.getElementById("notFound").style.display = "none";
     }
+    if(document.getElementById("sucsessAdd")) {
+      document.getElementById("sucsessAdd").style.display = "none";
+    }
   }
 
   function handleChange(e) {
