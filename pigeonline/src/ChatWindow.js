@@ -188,6 +188,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
       currentUserChat.lastMessage = "audio";
       afterMessage(newMessage, "audio", date);
       document.getElementById('adioPlay').src = null;
+      document.getElementById('recordPlay').src = null;
       setLastRecord("");
 
       //document.getElementById('recordPlay').src = null;
