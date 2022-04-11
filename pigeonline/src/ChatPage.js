@@ -3,7 +3,7 @@ import './SampleChat.css';
 import ChatMenu from './ChatMenu';
 import UserSideBox from './UserSideBox';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+
 
 function ChatPage({nowOnline, UsersArray}) {
   const [chats, setChats] = useState(nowOnline.onlineUser.chats.map((chat, key) => {
@@ -12,8 +12,8 @@ function ChatPage({nowOnline, UsersArray}) {
     return (
     <>
       <div className="row" id="Bar">
-      <div className="col"><img src="im4.png" id="leftLogo" /></div>
-      <div className="col logoWrap"><img src="logo.png" id="webLogo" /></div>
+      <div className="col"><img src="im4.png" id="leftLogo" alt="left-logo"/></div>
+      <div className="col logoWrap"><img src="logo.png" id="webLogo" alt="right-logo"/></div>
     </div>
 
       <div className="messaging">

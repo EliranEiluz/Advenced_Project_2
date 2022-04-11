@@ -10,7 +10,7 @@ import Message from './Message';
 function Contact({nowOnline, UsersArray})  {
   const params = useLocation();
   const [contactUserName, setContactUserName] = useState(params.state.user)
-  const currentChat = nowOnline.onlineUser.chats.find((e) => e.username == contactUserName)
+  const currentChat = nowOnline.onlineUser.chats.find((e) => e.username === contactUserName)
   // all the messages with the contact.
   const [chatMessages, setChatMessages] = useState(currentChat.messages.map((message, key) => {
     return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} senderPicture={message.senderPicture} key={key}/>}));
@@ -21,8 +21,8 @@ function Contact({nowOnline, UsersArray})  {
     return (
     <>
     <div className="row" id="Bar">
-      <div className="col"><img src="im4.png" id="leftLogo" /></div>
-      <div className="col logoWrap"><img src="logo.png" id="webLogo" /></div>
+      <div className="col"><img src="im4.png" id="leftLogo" alt="left-logo"/></div>
+      <div className="col logoWrap"><img src="logo.png" id="webLogo" alt="right-logo"/></div>
     </div>
 
     <div className="messaging">

@@ -185,6 +185,10 @@ button.user:hover {
     display: none;
 }
 
+#exists {
+    display: none;
+}
+
 .exitBut {
     float: left;
     width: 40px;

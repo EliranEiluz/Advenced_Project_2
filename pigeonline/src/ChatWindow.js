@@ -8,8 +8,8 @@ import UserSideBox from './UserSideBox';
 
 function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersArray, setChatMessages, setContactUserName}) {
   const [textInput, setTextInput] = useState('');
-  const contactObject = UsersArray.find((e) => e.username == contactUserName)
-  const currentUserChat = nowOnline.onlineUser.chats.find((e) => e.username == contactUserName);
+  const contactObject = UsersArray.find((e) => e.username === contactUserName)
+  const currentUserChat = nowOnline.onlineUser.chats.find((e) => e.username === contactUserName);
   const [lastRecord, setLastRecord] = useState('');
 
 
@@ -19,7 +19,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
 
   function newTextMessage() {
     // don't send empty message.
-    if (document.getElementById("messageText").value == "") {
+    if (document.getElementById("messageText").value === "") {
       return;
     }
     // clean the message line.
@@ -33,35 +33,37 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
   function newPictureMessage(e) {
     //setImageInput(e.target.value)
     const image = document.getElementById("image-input").files[0].name;
-    if(image == "") {
+    if(image === "") {
       return;
     }
     var fileName = image;
     var idxDot = fileName.lastIndexOf(".") + 1;
     var extFile = fileName.substring(idxDot, fileName.length).toLowerCase();
-    if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
+    if (extFile === "jpg" || extFile === "jpeg" || extFile === "png"){
       const date = dateNow()
       const newMessage = new MessageClass(nowOnline.onlineUser.username, image, "image", date, nowOnline.onlineUser.picture)
       currentUserChat.lastMessage = "image";
       afterMessage(newMessage, "image", date);
-    }else{
+      document.getElementById("image-input").value = "";
+    } else{
        alert('invalid')
     }   
   }
 
   function newVideoMessage() {
     const video = document.getElementById("video-input").files[0].name;
-    if(video == "") {
+    if(video === "") {
       return;
     }
     var fileName = video;
     var idxDot = fileName.lastIndexOf(".") + 1;
     var extFile = fileName.substring(idxDot, fileName.length).toLowerCase();
-    if (extFile=="mp4") {
+    if (extFile === "mp4") {
       const date = dateNow()
       const newMessage = new MessageClass(nowOnline.onlineUser.username, video, "video", date, nowOnline.onlineUser.picture)
       currentUserChat.lastMessage = "video";
       afterMessage(newMessage, "video",date);
+      document.getElementById("video-input").value = "";
     }else{
        alert('invalid')
     }   
@@ -130,7 +132,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
  
         // Stop event
         stop.addEventListener('click', function (ev) {
-          if(mediaRecorder.state != "inactive")
+          if(mediaRecorder.state !== "inactive")
             mediaRecorder.stop();
           // console.log(mediaRecorder.state);
             audio.pause();
@@ -180,7 +182,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
     }
 
     function newRecordMessage() {
-    if(lastRecord == "") {
+    if(lastRecord === "") {
       return;
     }
       const date = dateNow()
@@ -201,7 +203,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
     currentUserChat.messages.push(newMessage);
     currentUserChat.date = date;
     if(contactObject) {
-      const otherUserChat = contactObject.chats.find((e) => e.username == nowOnline.onlineUser.username);
+      const otherUserChat = contactObject.chats.find((e) => e.username === nowOnline.onlineUser.username);
       otherUserChat.messages.push(newMessage);
       otherUserChat.lastMessage = lastMessage;
       otherUserChat.date = date;

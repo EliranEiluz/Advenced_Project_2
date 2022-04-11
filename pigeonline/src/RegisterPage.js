@@ -82,7 +82,7 @@ function RegisterPage({UsersArray, nowOnline}) {
     var fileName = userValues.picture;
     var idxDot = fileName.lastIndexOf(".") + 1;
     var extFile = fileName.substring(idxDot, fileName.length).toLowerCase();
-    if (extFile=="jpg" || extFile=="jpeg" || extFile=="png" || userValues.picture == ""){
+    if (extFile === "jpg" || extFile === "jpeg" || extFile === "png" || userValues.picture === ""){
         document.getElementById("pictureError").style.display = "unset";
         document.getElementById("pictureError").style.color = "rgb(15, 203, 15)";
         document.getElementById("pictureError").innerHTML = "Valid !"
@@ -157,11 +157,13 @@ function RegisterPage({UsersArray, nowOnline}) {
           isValidValues.validPicture = false;
         }
         break;
+        default:
+          break;
     }
   }
 
   function handleSubmit(event) {
-    if(userValues.picture == "") {
+    if(userValues.picture === "") {
       userValues.picture = "defaultpic.png";
     }
     nowOnline.onlineUser = new User(userValues.username, userValues.password, userValues.displayName, userValues.picture);
@@ -177,7 +179,7 @@ function RegisterPage({UsersArray, nowOnline}) {
       <div className="card-body">
       <div className="row">
           <div className="col-12" id="logoWrapper">
-            <img src="LoginLogo.jpg" id="logo"></img>
+            <img src="LoginLogo.jpg" id="logo" alt="logo"></img>
             <p id="slogan">Communicate like the old days.Nowadays.</p>
           </div>
         </div>

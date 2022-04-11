@@ -13,8 +13,8 @@ function LoginPage({UsersArray, nowOnline}) {
   }
   
   function handleSubmit(event) {
-    if(UsersArray.find((e) => e.username == userValues.username && e.password == userValues.password)) {
-      nowOnline.onlineUser = UsersArray.find((e) => e.username == userValues.username);
+    if(UsersArray.find((e) => e.username === userValues.username && e.password === userValues.password)) {
+      nowOnline.onlineUser = UsersArray.find((e) => e.username === userValues.username);
       navigate('/chat');
     }
     else {
@@ -37,7 +37,7 @@ function LoginPage({UsersArray, nowOnline}) {
                 <div className="card-body">
                     <div className="row">
                       <div className="col-12">
-                        <img src="LoginLogo.jpg" id="logo"></img>
+                        <img src="LoginLogo.jpg" id="logo" alt="logo"></img>
                         <p id="slogan">Communicate like the old days.Nowadays.</p>
                         <br></br>
                       </div>

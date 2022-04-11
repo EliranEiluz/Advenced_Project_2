@@ -39,7 +39,7 @@ function Message({senderUserName, content, nowOnline, type,  date ,senderPicture
             return (
                 <div className="outgoing_msg">
                     <div className="sent_msg">
-                        <p><img src={content}></img></p>
+                        <p><img src={content} alt="content"></img></p>
                         <span className="time_date">{date}</span>{" "}
                     </div>
                 </div>
@@ -57,7 +57,7 @@ function Message({senderUserName, content, nowOnline, type,  date ,senderPicture
                 </div>
                 <div className="received_msg">
                 <div className="received_withd_msg">
-                <p><img src={content}></img></p>
+                <p><img src={content} alt="content"></img></p>
                     <span className="time_date">{date}</span>
                 </div>
                 </div>
