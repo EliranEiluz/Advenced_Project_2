@@ -89,7 +89,7 @@ function Message({senderUserName, content, nowOnline, type,  date ,senderPicture
                 </div>
                 <div className="received_msg">
                 <div className="received_withd_msg">
-                <p><video controls><source src={content} type="video/mp4"></source></video></p>
+                <p><video className = "videoWrapper" controls><source src={content} type="video/mp4"></source></video></p>
                     <span className="time_date">{date}</span>
                 </div>
                 </div>

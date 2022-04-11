@@ -41,7 +41,7 @@ class Chat {
 }
 
 
-const UsersArray = [new User('wow','wowwowwow','wow','defaultpic.png')];
+const UsersArray = [new User('wow','wowwowwow','wow','defaultpic.png'), new User('john','wowwowwow','john','defaultpic.png')];
 UsersArray[0].chats.push(new Chat('ben','Ben', 'defaultpic.png', 'Hello World !', "March 25"),
 new Chat('eliran', 'Eliran','defaultpic.png', 'Hey eliran !', "March 25"))
 

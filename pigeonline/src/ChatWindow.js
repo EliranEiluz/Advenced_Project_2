@@ -29,7 +29,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
     const date = dateNow()
     const newMessage = new MessageClass(nowOnline.onlineUser.username, textInput, "text",date, nowOnline.onlineUser.picture)
     currentUserChat.lastMessage = textInput;
-    afterMessage(newMessage, date);
+    afterMessage(newMessage, textInput,date);
   }
 
   function newPictureMessage(e) {
@@ -43,9 +43,9 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
     var extFile = fileName.substring(idxDot, fileName.length).toLowerCase();
     if (extFile=="jpg" || extFile=="jpeg" || extFile=="png"){
       const date = dateNow()
-      const newMessage = new MessageClass(nowOnline.onlineUser.username, image, "Image", date, nowOnline.onlineUser.picture)
+      const newMessage = new MessageClass(nowOnline.onlineUser.username, image, "image", date, nowOnline.onlineUser.picture)
       currentUserChat.lastMessage = "image";
-      afterMessage(newMessage, date);
+      afterMessage(newMessage, "image", date);
     }else{
        alert('invalid')
     }   
@@ -63,7 +63,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
       const date = dateNow()
       const newMessage = new MessageClass(nowOnline.onlineUser.username, video, "video", date, nowOnline.onlineUser.picture)
       currentUserChat.lastMessage = "video";
-      afterMessage(newMessage, date);
+      afterMessage(newMessage, "video",date);
     }else{
        alert('invalid')
     }   
@@ -178,14 +178,12 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
 
     function newRecordMessage() {
     if(lastRecord == "") {
-      console.log("no src")
       return;
     }
-    console.log(lastRecord)
       const date = dateNow()
       const newMessage = new MessageClass(nowOnline.onlineUser.username, lastRecord, "audio", date, nowOnline.onlineUser.picture)
       currentUserChat.lastMessage = "audio";
-      afterMessage(newMessage, date);
+      afterMessage(newMessage, "audio", date);
       document.getElementById('adioPlay').src = null;
       setLastRecord("");
 
@@ -195,13 +193,14 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
 
     }
 
-  function afterMessage(newMessage, date) {
+  function afterMessage(newMessage,lastMessage, date) {
     currentUserChat.messages.push(newMessage);
     currentUserChat.date = date;
     if(contactObject) {
       const otherUserChat = contactObject.chats.find((e) => e.username == nowOnline.onlineUser.username);
       otherUserChat.messages.push(newMessage);
-      otherUserChat.lastMessage = newMessage;
+      otherUserChat.lastMessage = lastMessage;
+      otherUserChat.date = date;
     }
     setChatMessages(currentUserChat.messages.map((message, key) => {
       return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} senderPicture={message.senderPicture} key={key}/>}));
@@ -213,9 +212,24 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
 
     // use this function only you send new message (input).
     function dateNow() {
-        const currentDate = new Date();
-        const date = currentDate.getHours() + ":" + currentDate.getMinutes() +
-        " | " + currentDate.getDate() + "/" + ((currentDate.getMonth())+1) + "/" + currentDate.getFullYear();
+        let currentDate = new Date();
+        let minutes = currentDate.getMinutes();
+        let hours = currentDate.getHours();
+        let days = currentDate.getDate();
+        let months = currentDate.getMonth() + 1;
+        if(minutes.toString().length === 1) {
+          minutes = "0" + minutes;
+        }
+        if(hours.toString().length === 1) {
+          hours = "0" + hours;
+        }
+        if(days.toString().length === 1) {
+          days = "0" + days;
+        }
+        if(months.toString().length === 1) {
+          months = "0" + months;
+        }
+        const date = hours + ":" + minutes + " | " + days + "/" + months + "/" + currentDate.getFullYear();
         return date;
     }
 
