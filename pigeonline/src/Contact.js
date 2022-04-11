@@ -21,8 +21,8 @@ function Contact({nowOnline, UsersArray})  {
     return (
     <>
     <div className="row" id="Bar">
-      <div className="col"><Link to="/"><img src="im4.png" id="leftLogo" /></Link></div>
-      <div className="col logoWrap"><Link to="/"><img src="logo.png" id="webLogo" /></Link></div>
+      <div className="col"><img src="im4.png" id="leftLogo" /></div>
+      <div className="col logoWrap"><img src="logo.png" id="webLogo" /></div>
     </div>
 
     <div className="messaging">

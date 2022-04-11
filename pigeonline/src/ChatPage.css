@@ -85,7 +85,7 @@
 
 #addUser {
     padding: 3%;
-    width: 30%;
+    width:60%;
     color: white;
     padding-right: 0;
     padding-left: 0;
@@ -179,4 +179,15 @@ button.user:hover {
 #addYourself {
     display: none;
     text-align: left;
+}
+
+.exitBut {
+    float: left;
+    width: 40px;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+.exit {
+    padding-left: 0;
 }
