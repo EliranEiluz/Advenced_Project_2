@@ -165,6 +165,8 @@ function RegisterPage({UsersArray, nowOnline}) {
   function handleSubmit(event) {
     if(userValues.picture === "") {
       userValues.picture = "defaultpic.png";
+    } else {
+      userValues.picture = URL.createObjectURL(document.getElementById("inputGroupFile02").files[0]) // take real url of the picture.
     }
     nowOnline.onlineUser = new User(userValues.username, userValues.password, userValues.displayName, userValues.picture);
     UsersArray.push(nowOnline.onlineUser);
