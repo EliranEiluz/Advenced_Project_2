@@ -1,7 +1,7 @@
 import './SampleChat.css';
 
-function Message({senderUserName, content, nowOnline, type,  date ,senderPicture}) { // delete sendTo, chande object sender to string.
-    
+function Message({senderUserName, content, nowOnline, type,  date ,senderPicture}) {
+    // TEXT.
     if(type == "text") {
         if(senderUserName == nowOnline.onlineUser.username) {
             return (
@@ -34,6 +34,7 @@ function Message({senderUserName, content, nowOnline, type,  date ,senderPicture
         }
     }
 
+    // IMAGE.
     else if(type == "image") {
         if(senderUserName == nowOnline.onlineUser.username) {
             return (
@@ -66,6 +67,8 @@ function Message({senderUserName, content, nowOnline, type,  date ,senderPicture
         }
 
     }
+
+    // VIDEO.
     else if(type == "video") {
         if(senderUserName == nowOnline.onlineUser.username) {
             return (
@@ -99,10 +102,10 @@ function Message({senderUserName, content, nowOnline, type,  date ,senderPicture
 
     }
 
+    // AUDIO.
     else if(type == "audio") {
         if(senderUserName == nowOnline.onlineUser.username) {
-            return (
-                
+            return (       
                 <div className="outgoing_msg">
                     <div className="sent_msg">
                     <p><audio controls className="Wrapper"><source src={content} type="audio/mp3"></source></audio></p>

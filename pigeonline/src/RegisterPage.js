@@ -3,9 +3,12 @@ import { Link,useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import {User} from './index';
 
+
 function RegisterPage({UsersArray, nowOnline}) {
+  // Save the register values which typed.
   const [userValues, setUserValues] = useState({username:'', password:'', validatePass:'',displayName:'', picture:''});
   var navigate = useNavigate();
+  // Save validation of each value.
   const [isValidValues] = useState({validUserName:false, validPassword:false, validPassword2:false, validDisplayName:false, 
   validPicture:true});
 
@@ -15,9 +18,11 @@ function RegisterPage({UsersArray, nowOnline}) {
   }
 
   function validateUserName() {
+    // Username with at least 1 character.
     if(userValues.username.length > 0) {
         document.getElementById("usernameError").style.display = "none";
         document.getElementById("usedMessage").style.display = "none";
+      // Must be new username.
       if(UsersArray.find((e) => e.username === userValues.username)) {
         document.getElementById("usedMessage").style.display = "block"; 
       }
@@ -37,6 +42,7 @@ function RegisterPage({UsersArray, nowOnline}) {
   }
 
   function validateDisplayName() {
+    // displayName with at least 1 character.
     if(userValues.displayName.length > 0) {
       document.getElementById("displayNameError").style.display = "unset";
       document.getElementById("displayNameError").style.color = "rgb(15, 203, 15)";
@@ -50,6 +56,7 @@ function RegisterPage({UsersArray, nowOnline}) {
   }
 
   function validatePassword() {
+    // Check valid password.
     var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     if (userValues.password.match(passw)) {
       document.getElementById("passwordError").style.display = "block";
@@ -65,6 +72,7 @@ function RegisterPage({UsersArray, nowOnline}) {
   }
 
   function validatePassword2() {
+    // Check if equal to the password value.
     if (userValues.password === userValues.validatePass && userValues.password.length > 0) {
       document.getElementById("validatePassError").style.display = "unset";
       document.getElementById("validatePassError").style.color = "rgb(15, 203, 15)";
@@ -82,6 +90,7 @@ function RegisterPage({UsersArray, nowOnline}) {
     var fileName = userValues.picture;
     var idxDot = fileName.lastIndexOf(".") + 1;
     var extFile = fileName.substring(idxDot, fileName.length).toLowerCase();
+    // Check valid img type.
     if (extFile === "jpg" || extFile === "jpeg" || extFile === "png" || userValues.picture === ""){
         document.getElementById("pictureError").style.display = "unset";
         document.getElementById("pictureError").style.color = "rgb(15, 203, 15)";
@@ -163,11 +172,13 @@ function RegisterPage({UsersArray, nowOnline}) {
   }
 
   function handleSubmit(event) {
+    // Enter default picture.
     if(userValues.picture === "") {
       userValues.picture = "defaultpic.png";
     } else {
-      userValues.picture = URL.createObjectURL(document.getElementById("inputGroupFile02").files[0]) // take real url of the picture.
+      userValues.picture = URL.createObjectURL(document.getElementById("inputGroupFile02").files[0])
     }
+    // Set nowOnlineUser.
     nowOnline.onlineUser = new User(userValues.username, userValues.password, userValues.displayName, userValues.picture);
     UsersArray.push(nowOnline.onlineUser);
     event.preventDefault();
@@ -179,12 +190,14 @@ function RegisterPage({UsersArray, nowOnline}) {
     <form className="container-fluid" onSubmit={handleSubmit} >
     <div id="cardRegister" className="card row">
       <div className="card-body">
-      <div className="row">
+
+        <div className="row">
           <div className="col-12" id="logoWrapper">
             <img src="LoginLogo.jpg" id="logo" alt="logo"></img>
             <p id="slogan">Communicate like the old days.Nowadays.</p>
           </div>
         </div>
+
         <div className="mb-3 row">
           <label className="col-sm-6 col-lg-2">Username</label>
           <div className="col-10">
@@ -197,6 +210,7 @@ function RegisterPage({UsersArray, nowOnline}) {
             </div>
           </div>
         </div>
+
         <div className="mb-3 row">
           <label className="col-sm-6 col-lg-2">Password</label>
           <div className="col-10">
@@ -206,6 +220,7 @@ function RegisterPage({UsersArray, nowOnline}) {
             </div>
           </div>
         </div>
+
         <div className="mb-3 row">
           <label className="col-sm-6 col-lg-2">Verify password</label>
           <div className="col-10">
@@ -215,6 +230,7 @@ function RegisterPage({UsersArray, nowOnline}) {
             </div>
           </div>
         </div>
+
         <div className="mb-3 row">
           <label className="col-sm-6 col-lg-2">Display name</label>
           <div className="col-10">
@@ -224,6 +240,7 @@ function RegisterPage({UsersArray, nowOnline}) {
             </div>
           </div>
         </div>
+
         <div className="mb-3 row">
           <label className="col-sm-6 col-lg-2">Upload picture</label>
           <div className="col-10">
@@ -233,6 +250,7 @@ function RegisterPage({UsersArray, nowOnline}) {
             </div>
           </div>
         </div>
+        
         <div className="container">
           <div className="row">
             <div className="col-5">
@@ -243,6 +261,7 @@ function RegisterPage({UsersArray, nowOnline}) {
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </form>
