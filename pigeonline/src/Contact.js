@@ -7,14 +7,18 @@ import ChatWindow from './ChatWindow';
 import { useLocation,Link } from 'react-router-dom';
 import Message from './Message';
 
+
 function Contact({nowOnline, UsersArray})  {
+  // Take the parameter from Link calling.
   const params = useLocation();
+  // The current contact we push it.
   const [contactUserName, setContactUserName] = useState(params.state.user)
+  // The chat with the contact.
   const currentChat = nowOnline.onlineUser.chats.find((e) => e.username === contactUserName)
-  // all the messages with the contact.
+  // Chat messages with the contact.
   const [chatMessages, setChatMessages] = useState(currentChat.messages.map((message, key) => {
     return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} senderPicture={message.senderPicture} key={key}/>}));
-
+  // The side list of current user's chats.
   const [chats, setChats] = useState(nowOnline.onlineUser.chats.map((chat, key) => {
     return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} setMessages={setChatMessages} setContact={setContactUserName} nowOnline={nowOnline} key={key}/>}));
   

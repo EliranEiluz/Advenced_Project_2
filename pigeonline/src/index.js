@@ -39,7 +39,6 @@ class Chat {
   }
 }
 
-
 const UsersArray = [new User('Bar','Aa123456','Bar',"woman.jpg"), new User('Foo','Aa123456','Foo','defaultpic.png')];
 UsersArray[0].chats.push(new Chat('Foo', 'Foo', "defaultpic.png", 'Bye!', '17:53 | 18/6/2018'))
 UsersArray[1].chats.push(new Chat('Bar', 'Bar', "woman.jpg", 'Bye!', '17:53 | 18/6/2018'))
@@ -55,6 +54,7 @@ UsersArray[0].chats[0].messages.push(new MessageClass('Foo', "Bye!", 'text', '17
 UsersArray[1].chats[0].messages.push(new MessageClass('Foo', "Bye!", 'text', '17:53 | 18/6/2018', "defaultpic.png"))
 
 const nowOnline = {onlineUser:null};
+
 
 ReactDOM.render(
   <React.StrictMode>

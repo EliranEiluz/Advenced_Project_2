@@ -1,4 +1,3 @@
-
 import './ChatPage.css';
 import './SampleChat.css'
 import AddUser from './AddUser';
@@ -6,8 +5,6 @@ import { Link } from 'react-router-dom';
 
 
 function ChatMenu({nowOnline, UsersArray, setChats, chats}) {
-
-
   return (
     <>
     <div className="inbox_people">
@@ -19,9 +16,11 @@ function ChatMenu({nowOnline, UsersArray, setChats, chats}) {
             </svg>
           </button></Link>
         </div>
+
         <div className="recent_heading col-6">
           <h6>Recent</h6>
         </div>
+
         <div className="add_bar col-2">
         <AddUser nowOnline={nowOnline} UsersArray={UsersArray} setChats={setChats}/>
         </div>
@@ -29,10 +28,9 @@ function ChatMenu({nowOnline, UsersArray, setChats, chats}) {
       
       <div className="inbox_chat">
         {chats}
-
       </div>
+
     </div>
-    
 </>
   );
 }
