@@ -7,7 +7,7 @@ import Message from './Message';
 import UserSideBox from './UserSideBox';
 
 
-function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersArray, setChatMessages, setContactUserName}) {
+function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersArray, setChatMessages, setContactUserName, setCurrentChat}) {
   // The current text which typed.
   const [textInput, setTextInput] = useState('');
   // The current user that i chat with him.
@@ -208,7 +208,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
     setChatMessages(currentUserChat.messages.map((message, key) => {
       return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} senderPicture={message.senderPicture} key={key}/>}));
     setChats(nowOnline.onlineUser.chats.map((chat, key) => {
-      return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} setMessages={setChatMessages} setContact={setContactUserName} nowOnline={nowOnline} key={key}/>}));
+      return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} setMessages={setChatMessages} setContactName={setContactUserName} setCurrentChat={setCurrentChat} nowOnline={nowOnline} key={key}/>}));
   }
 
 

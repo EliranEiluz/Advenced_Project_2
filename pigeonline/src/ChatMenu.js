@@ -4,7 +4,7 @@ import AddUser from './AddUser';
 import { Link } from 'react-router-dom';
 
 
-function ChatMenu({nowOnline, UsersArray, setChats, chats}) {
+function ChatMenu({nowOnline, UsersArray, setChats, chats, setMessages, setContactName, setCurrentChat}) {
   return (
     <>
     <div className="inbox_people">
@@ -22,7 +22,7 @@ function ChatMenu({nowOnline, UsersArray, setChats, chats}) {
         </div>
 
         <div className="add_bar col-2">
-        <AddUser nowOnline={nowOnline} UsersArray={UsersArray} setChats={setChats}/>
+        <AddUser nowOnline={nowOnline} UsersArray={UsersArray} setChats={setChats} setMessages={setMessages} setContactName={setContactName} setCurrentChat={setCurrentChat}/>
         </div>
       </div>
       

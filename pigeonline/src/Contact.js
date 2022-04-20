@@ -14,13 +14,13 @@ function Contact({nowOnline, UsersArray})  {
   // The current contact we push it.
   const [contactUserName, setContactUserName] = useState(params.state.user)
   // The chat with the contact.
-  const currentChat = nowOnline.onlineUser.chats.find((e) => e.username === contactUserName)
+  const [currentChat, setCurrentChat] = useState(nowOnline.onlineUser.chats.find((e) => e.username === contactUserName))
   // Chat messages with the contact.
   const [chatMessages, setChatMessages] = useState(currentChat.messages.map((message, key) => {
     return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} senderPicture={message.senderPicture} key={key}/>}));
   // The side list of current user's chats.
   const [chats, setChats] = useState(nowOnline.onlineUser.chats.map((chat, key) => {
-    return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} setMessages={setChatMessages} setContact={setContactUserName} nowOnline={nowOnline} key={key}/>}));
+    return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} setMessages={setChatMessages} setContactName={setContactUserName} setCurrentChat={setCurrentChat} nowOnline={nowOnline} key={key}/>}));
   
     return (
     <>
@@ -31,8 +31,8 @@ function Contact({nowOnline, UsersArray})  {
 
     <div className="messaging">
       <div className="inbox_msg">
-      <ChatMenu nowOnline={nowOnline} UsersArray={UsersArray} chats={chats} setChats={setChats}/>
-        <ChatWindow setChats={setChats} nowOnline={nowOnline} chatMessages={chatMessages} setChatMessages={setChatMessages} contactUserName={contactUserName} UsersArray={UsersArray} setContactUserName={setContactUserName}/>
+      <ChatMenu nowOnline={nowOnline} UsersArray={UsersArray} chats={chats} setChats={setChats} setMessages={setChatMessages} setContactName={setContactUserName} setCurrentChat={setCurrentChat}/>
+        <ChatWindow setChats={setChats} nowOnline={nowOnline} chatMessages={chatMessages} setChatMessages={setChatMessages} contactUserName={contactUserName} UsersArray={UsersArray} setContactUserName={setContactUserName} setCurrentChat={setCurrentChat}/>
       </div>
     </div>
   </>

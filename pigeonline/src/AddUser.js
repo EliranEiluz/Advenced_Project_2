@@ -5,7 +5,7 @@ import {Chat} from './index'
 import UserSideBox from './UserSideBox';
 
 
-function AddUser({nowOnline, UsersArray, setChats}) {
+function AddUser({nowOnline, UsersArray, setChats, setMessages, setContactName, setCurrentChat}) {
   // The state of AddUser is name and the object of the User we want to add.
   const toAdd = useState({newUser : '', objectUser : null});
 
@@ -80,7 +80,7 @@ function AddUser({nowOnline, UsersArray, setChats}) {
         // Rerender my chats by setState method.
         setChats(
           nowOnline.onlineUser.chats.map((chat, key) => {
-            return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} key={key}/>})
+            return <UserSideBox nowOnline={nowOnline} displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} setMessages={setMessages} setContactName={setContactName} setCurrentChat={setCurrentChat} key={key}/>})
         );
       }
     }
