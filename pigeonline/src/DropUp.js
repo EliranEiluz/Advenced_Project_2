@@ -78,7 +78,7 @@ function DropUp({newPictureMessage, newVideoMessage, startRecord, newRecordMessa
                             </button>
                         </p>
 
-                        <audio id="recordPlay" controls></audio>
+                        <audio id="recordPlay" muted controls></audio>
 
                         <audio id="adioPlay" controls></audio>
                     </div>
