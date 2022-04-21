@@ -176,6 +176,9 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
     // Reset the 2nd audio element.
     function resetRecord() {
       document.getElementById('adioPlay').src = null;
+      document.getElementById('recordPlay').src = null;
+      // Don't send last record after close the modal.
+      setLastRecord("");
     }
 
     function newRecordMessage() {
