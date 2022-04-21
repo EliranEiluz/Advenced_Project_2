@@ -7,9 +7,20 @@ import Message from './Message';
 function UserSideBox({image,displayname,date,lastMessage,username, setMessages, nowOnline, setContactName, setCurrentChat}) {
   var navigation = useNavigate();
 
+  function stopMedia() {
+    // Wraper is the className of video and audio tags.
+    var childElements = document.getElementsByClassName('Wrapper');
+    for (var i = 0; i < childElements.length; i++) {
+      childElements[i].pause();
+      childElements[i].currentTime = 0;
+  }
+  }
+
   function handleClick() {
     // Already in '/contact' -> just rerender the contact.
     if(setMessages) {
+      // Stop media while change chat.
+      stopMedia();
       const currentChat = nowOnline.onlineUser.chats.find((e) => e.username === username)
       setContactName(username)
       setCurrentChat(currentChat)
