@@ -189,9 +189,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
       const newMessage = new MessageClass(nowOnline.onlineUser.username, lastRecord, "audio", date, nowOnline.onlineUser.picture)
       currentUserChat.lastMessage = "audio";
       afterMessage(newMessage, "audio", date);
-      document.getElementById('adioPlay').src = null;
-      document.getElementById('recordPlay').src = null;
-      setLastRecord("");
+      resetRecord();
     }
 
 
