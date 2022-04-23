@@ -29,24 +29,24 @@ So, for a consist usage, PLEASE DO NOT REFRESH THE SITE IF YOU WANT DATA TO BE S
 There are 7 hard-coded users that have chats with each other with all kind of available options of messages. you can use them as an example for the site abilities.
 
 1. Username: Bar
-   Password: Aa123456
+Password: Aa123456
 
 2. Username: Foo
-   Password: Aa123456
-   
+Password: Aa123456
+
 3. Username: Baz
-   Password: Aa123456
+Password: Aa123456
 
 4. Username: Eliran
-   Password: Aa123456
-   
+Password: Aa123456
+
 5. Username: Ben
-   Password: Aa123456
+Password: Aa123456
 
 6. Username: Boo
-   Password: Aa123456
-   
+Password: Aa123456
+
 7. Username: Person
-   Password: Aa123456
-   
-   To be continued... :)
+Password: Aa123456
+
+To be continued... :)
