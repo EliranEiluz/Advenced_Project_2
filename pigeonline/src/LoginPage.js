@@ -54,7 +54,7 @@ function LoginPage({UsersArray, nowOnline}) {
                     <div className="mb-3 row">
                       <label className="col-sm-6 col-lg-2">Username</label>
                       <div className="col-10">
-                        <input name="username" type="text" className="form-control" autocomplete="off" placeholder="Please enter your username here..." onChange={handleChange} value={userValues.username} required></input>
+                        <input name="username" type="text" className="form-control" autoComplete="off" placeholder="Please enter your username here..." onChange={handleChange} value={userValues.username} required></input>
                       </div>
                     </div>
 

@@ -262,7 +262,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
         <DropUp newPictureMessage={newPictureMessage} newVideoMessage={newVideoMessage} startRecord={startRecord} newRecordMessage={newRecordMessage} resetRecord={resetRecord} />
 
         <div className='col-xl-10 col-sm-10 col-xs-10 col' id='inputRow'>
-          <input type="text" className="form-control" id="messageText" autocomplete="off" placeholder="New message here..." onChange={handleChange} onKeyDown={handleKeyDown}></input>
+          <input type="text" className="form-control" id="messageText" autoComplete="off" placeholder="New message here..." onChange={handleChange} onKeyDown={handleKeyDown}></input>
         </div>
 
       </div>
