@@ -77,7 +77,7 @@ function LoginPage({UsersArray, nowOnline}) {
                           </div>
                         </div>
                         <br></br>
-                        <p id="moreInfo">PigeOnline is the fastest and safest way to communicate.(sample)</p>
+                        <p id="moreInfo">PigeOnline is the fastest and safest way to communicate.</p>
                     </div>
 
                 </div>
