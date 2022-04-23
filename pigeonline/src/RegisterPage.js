@@ -201,7 +201,7 @@ function RegisterPage({UsersArray, nowOnline}) {
         <div className="mb-3 row">
           <label className="col-sm-6 col-lg-2">Username</label>
           <div className="col-10">
-            <input name="username" type="text" className="form-control" placeholder="Please enter your username here..." onChange={handleChange} />
+            <input name="username" type="text" className="form-control" autocomplete="off" placeholder="Please enter your username here..." onChange={handleChange} />
             <div id="usernameError" className="error-divs">
               Username must contain at least one character.
             </div>
@@ -234,7 +234,7 @@ function RegisterPage({UsersArray, nowOnline}) {
         <div className="mb-3 row">
           <label className="col-sm-6 col-lg-2">Display name</label>
           <div className="col-10">
-            <input name="displayName" className="form-control" placeholder="Please enter your display name..." onChange={handleChange}/>
+            <input name="displayName" className="form-control" autocomplete="off" placeholder="Please enter your display name..." onChange={handleChange}/>
             <div id="displayNameError" className="error-divs">
               The display name must contain at least one character.
             </div>
