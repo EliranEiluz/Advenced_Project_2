@@ -23,7 +23,7 @@ The client-side web application is consists of 3 pages:
     you can log out by clicking the log-out button or by clicking on the logo of the site. In both ways, you will be transfered to the login page.
 
 Beacuse the site is built with reactJS, moving within pages will not refresh the page(React Router). Currently, as it's the first part of the project, 
-The web-application works without a server, all the data is saved locally.
+The web-application works without a server,which means all the data is saved locally.
 So, for a consist usage, PLEASE DO NOT REFRESH THE SITE IF YOU WANT DATA TO BE SAVED!
 
 There are 7 hard-coded users that have chats with each other with all kind of available options of messages. you can use them as an example for the site abilities.
