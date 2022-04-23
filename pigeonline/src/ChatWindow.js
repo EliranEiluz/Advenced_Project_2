@@ -245,7 +245,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
     
   return (
     <div className="mesgs">
-      <div className="msg_history">
+      <div className="msg_history" id="messageDisplay">
       {/* show the messages of current chat.*/}
         {chatMessages}
       </div>
