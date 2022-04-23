@@ -13,7 +13,7 @@ function UserSideBox({image,displayname,date,lastMessage,username, setMessages, 
     for (var i = 0; i < childElements.length; i++) {
       childElements[i].pause();
       childElements[i].currentTime = 0;
-  }
+    }
   }
 
   function handleClick() {

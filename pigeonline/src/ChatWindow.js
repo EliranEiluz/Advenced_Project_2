@@ -55,7 +55,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
       // Clean image input.
       document.getElementById("image-input").value = "";
     } else{
-       alert('invalid')
+       alert('Invalid file type !')
     }   
   }
 
@@ -79,7 +79,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
       // Clean video input.
       document.getElementById("video-input").value = "";
     } else{
-       alert('invalid')
+       alert('Invalid file type !')
     }   
   }
   
