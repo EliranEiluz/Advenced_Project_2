@@ -1,6 +1,7 @@
-# This project is demonstating a client-side web application of an instant-messaging platform(like WhatsApp), which bulit with ReactJS, 
-# and it's the first part out of four of the project in Advenced Programming 2 course.
 # The code was written by Ben Levi(ID 318811304) and Eliran Eiluz(ID 313268146). 
+# This project is demonstating a client-side web application of an instant-messaging platform(like WhatsApp), which bulit with ReactJS.
+# It's the first part out of four of the project in Advenced Programming 2 course.
+
 
 The client-side web application is consists of 3 pages:
 
