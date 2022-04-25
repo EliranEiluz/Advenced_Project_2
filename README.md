@@ -22,7 +22,7 @@ The client-side web application is consists of 3 pages:
     and you can add users to chat with by a button in the up-left side of the page. You can send text messages, pictures, videos and voice records.
     You can log out by clicking the log-out button. After clicking, you will be transfered to the login page.
 
-Beacuse the site is built with reactJS, moving within pages will not refresh the page(React Router). Currently, as it's the first part of the project, 
+Beacuse the site is built with reactJS, moving within pages will not refresh the page(React-Router-Dom). Currently, as it's the first part of the project, 
 The web-application works without a server,which means all the data is saved locally.
 So, for a consist usage, PLEASE DO NOT REFRESH THE SITE IF YOU WANT DATA TO BE SAVED!
 
