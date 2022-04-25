@@ -210,6 +210,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
       return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} senderPicture={message.senderPicture} key={key}/>}));
     setChats(nowOnline.onlineUser.chats.map((chat, key) => {
       return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} setMessages={setChatMessages} setContactName={setContactUserName} setCurrentChat={setCurrentChat} nowOnline={nowOnline} key={key}/>}));
+    scrollDown();
   }
 
 
@@ -242,10 +243,14 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
       }
     }
     
-    
+    function scrollDown() {
+      var scrollToDown = document.getElementById("messageDisplay");
+      scrollToDown.scrollTop = scrollToDown.scrollHeight
+    }
+
   return (
     <div className="mesgs">
-      <div className="msg_history" id="messageDisplay">
+      <div className="msg_history" id="messageDisplay" onLoad={scrollDown}>
       {/* show the messages of current chat.*/}
         {chatMessages}
       </div>
