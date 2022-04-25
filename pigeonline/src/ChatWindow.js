@@ -1,7 +1,7 @@
 import './ChatPage.css';
 import './SampleChat.css';
 import DropUp from './DropUp';
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import {MessageClass} from './index';
 import Message from './Message';
 import UserSideBox from './UserSideBox';
@@ -210,7 +210,6 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
       return <Message senderUserName={message.from} content={message.messageContent} nowOnline={nowOnline} type={message.messageType} date={message.messageDate} senderPicture={message.senderPicture} key={key}/>}));
     setChats(nowOnline.onlineUser.chats.map((chat, key) => {
       return <UserSideBox displayname={chat.displayName} image={chat.image} date={chat.date} lastMessage={chat.lastMessage} username={chat.username} setMessages={setChatMessages} setContactName={setContactUserName} setCurrentChat={setCurrentChat} nowOnline={nowOnline} key={key}/>}));
-    scrollDown();
   }
 
 
@@ -234,7 +233,7 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
         }
         const date = hours + ":" + minutes + " | " + days + "/" + months + "/" + currentDate.getFullYear();
         return date;
-    }
+      }
     
 
     function handleKeyDown(event) {
@@ -243,10 +242,19 @@ function ChatWindow({setChats, nowOnline, chatMessages, contactUserName, UsersAr
       }
     }
     
+    
+    // When msg_history is onLoad - push on chat.
     function scrollDown() {
       var scrollToDown = document.getElementById("messageDisplay");
       scrollToDown.scrollTop = scrollToDown.scrollHeight
     }
+
+    // on rerender - when send new message.
+    useEffect(() => {
+      var scrollToDown = document.getElementById("messageDisplay");
+      scrollToDown.scrollTop = scrollToDown.scrollHeight
+    });
+
 
   return (
     <div className="mesgs">
