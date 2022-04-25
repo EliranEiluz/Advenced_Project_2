@@ -50,7 +50,7 @@ function UserSideBox({image,displayname,date,lastMessage,username, setMessages, 
                 {" "}
                 <img
                   src={image}
-                  alt="contact"
+                  alt="contact-picture"
                 />{" "}
               </div>
               
