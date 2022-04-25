@@ -39,21 +39,8 @@ class Chat {
   }
 }
 
-/*
-const UsersArray = [new User('Bar','Aa123456','Bar',"woman.jpg"), new User('Foo','Aa123456','Foo','defaultpic.png')];
-UsersArray[0].chats.push(new Chat('Foo', 'Foo', "defaultpic.png", 'Bye!', '17:53 | 18/6/2018'))
-UsersArray[1].chats.push(new Chat('Bar', 'Bar', "woman.jpg", 'Bye!', '17:53 | 18/6/2018'))
-UsersArray[0].chats[0].messages.push(new MessageClass('Foo', "Hey Bar!", 'text', '17:51 | 18/6/2018', "defaultpic.png"))
-UsersArray[1].chats[0].messages.push(new MessageClass('Foo', "Hey Bar!", 'text', '17:51 | 18/6/2018', "defaultpic.png"))
-UsersArray[1].chats[0].messages.push(new MessageClass('Bar', "Hey Foo!", 'text', '17:51 | 18/6/2018', "woman.jpg"))
-UsersArray[0].chats[0].messages.push(new MessageClass('Bar', "Hey Foo!", 'text', '17:51 | 18/6/2018', "woman.jpg"))
-UsersArray[1].chats[0].messages.push(new MessageClass('Bar', 'send.png', 'image', '17:52 | 18/6/2018', "woman.jpg"))
-UsersArray[0].chats[0].messages.push(new MessageClass('Bar', 'send.png', 'image', '17:52 | 18/6/2018', "woman.jpg"))
-UsersArray[1].chats[0].messages.push(new MessageClass('Foo', 'video.mp4', 'video', '17:53 | 18/6/2018', "defaultpic.png"))
-UsersArray[0].chats[0].messages.push(new MessageClass('Foo', 'video.mp4', 'video', '17:53 | 18/6/2018', "defaultpic.png"))
-UsersArray[0].chats[0].messages.push(new MessageClass('Foo', "Bye!", 'text', '17:53 | 18/6/2018', "defaultpic.png"))
-UsersArray[1].chats[0].messages.push(new MessageClass('Foo', "Bye!", 'text', '17:53 | 18/6/2018', "defaultpic.png"))
-*/
+
+
 
 const UsersArray = [new User('Bar','Aa123456','Bar',"woman.jpg"), new User('Foo','Aa123456','Foo','defaultpic.png'),
                     new User('Baz','Aa123456','Baz',"woman.jpg"), new User('Boo','Aa123456','Boo','defaultpic.png'),
